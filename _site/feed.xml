@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blogs/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blogs/" rel="alternate" type="text/html" /><updated>2019-02-17T02:17:13+08:00</updated><id>http://localhost:4000/blogs/feed.xml</id><title type="html">Adam &amp;amp; Alvin’s Fun Lab</title><subtitle>A SECRET PLACE FOR FUN PROJECTS</subtitle><entry><title type="html">Add a theme for a blog</title><link href="http://localhost:4000/blogs/html/css/2019/02/13/add-a-theme-for-a-blog.html" rel="alternate" type="text/html" title="Add a theme for a blog" /><published>2019-02-13T12:00:00+08:00</published><updated>2019-02-13T12:00:00+08:00</updated><id>http://localhost:4000/blogs/html/css/2019/02/13/add-a-theme-for-a-blog</id><content type="html" xml:base="http://localhost:4000/blogs/html/css/2019/02/13/add-a-theme-for-a-blog.html">&lt;p&gt;I’m now mastered &lt;a href=&quot;https://www.khanacademy.org/computing/computer-programming/html-css&quot;&gt;Intro to HTML/CSS: Making webpages&lt;/a&gt; in Khan Academy. So, next step is to add a theme to style this blog with CSS. In this &lt;a href=&quot;https://www.khanacademy.org/computing/computer-programming/html-css/html-css-further-learning/a/webpage-design&quot;&gt;page&lt;/a&gt;, it provided some tips and I will use it to have my blog looks more pretty.&lt;/p&gt;
+
+&lt;p&gt;First, pick a palette from &lt;a href=&quot;http://paletton.com/&quot;&gt;Paletton&lt;/a&gt;. It’s really convenient for user to just move a dot in outter ring to a color you’d like. Then move indicator in middle circle to get a palette. For example, I like green a lot. And this is [the pallete][the-palette] I’m going to use.&lt;/p&gt;
+
+&lt;p&gt;I’m really not a art-man. So I decide to not only use the pallete from Paletton, but also learn how to layout a website. Plus what I learned from Khan Academy, I know how to view source of a page. You could put “view-source:http://paletton.com/examples/webpage/index-white.html” in URL bar of chrome browser to know how the example page named each block of a site, e.g. header, menu, content, and footer…,etc. I’m going to take a snapshot of my current site and you could compare later when I make CSS work.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/OriginalStyle.png&quot; alt=&quot;Original Blog Appearance&quot; width=&quot;400px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, it looks better. Probably could be improved after I learn more. Stay tuned.&lt;/p&gt;</content><author><name></name></author><summary type="html">I’m now mastered Intro to HTML/CSS: Making webpages in Khan Academy. So, next step is to add a theme to style this blog with CSS. In this page, it provided some tips and I will use it to have my blog looks more pretty.</summary></entry><entry><title type="html">趁新鮮記錄一下我的第二個作品 - Winson &amp;amp; Ohnoes</title><link href="http://localhost:4000/blogs/html/processjs/2019/02/13/winston-and-ohnoes.html" rel="alternate" type="text/html" title="趁新鮮記錄一下我的第二個作品 - Winson &amp; Ohnoes" /><published>2019-02-13T12:00:00+08:00</published><updated>2019-02-13T12:00:00+08:00</updated><id>http://localhost:4000/blogs/html/processjs/2019/02/13/winston-and-ohnoes</id><content type="html" xml:base="http://localhost:4000/blogs/html/processjs/2019/02/13/winston-and-ohnoes.html">&lt;p&gt;這個作品是改編自一個我覺得很有趣的桌遊，叫做[奇雞連連][gobblet-gobbers]。是我跟Alvin去年在桃園展演中心的桌遊展接觸到的遊戲。基本上像是進階版的 O X 遊戲。當時買了卡卡頌和速速城國，考慮到不想一口氣買太多，所以沒買奇雞連連。一直有點後悔沒買，學了&lt;a href=&quot;http://processingjs.org/&quot;&gt;ProcessJS&lt;/a&gt;之後，就想說拿他的規則來寫一個網頁小遊戲當練功吧!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;遊戲連結：&lt;/strong&gt;&lt;a href=&quot;https://shincar.github.io/games/WinstonNOhnoes.html&quot;&gt;點我玩 Winston &amp;amp; Ohnoes&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;遊戲規則：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;基本規則跟 O X 一樣，每位玩家在九宮格中輪流下棋。&lt;/li&gt;
+  &lt;li&gt;每位玩家起始都有6顆棋子。分別是兩顆小棋、兩顆中棋、兩顆大棋。&lt;/li&gt;
+  &lt;li&gt;跟 O X 不一樣的地方在於下棋時，尺寸大的棋子可以蓋過對方玩家尺寸較小的棋子。&lt;/li&gt;
+  &lt;li&gt;已經下過的棋子，可以在九宮格中自由移動。可以移到沒有棋子的地方，也可以選擇蓋過對方尺寸比你小的棋子。&lt;/li&gt;
+  &lt;li&gt;結束條件就跟原本的 O X一樣，先連線成功者獲勝。&lt;/li&gt;
+  &lt;li&gt;如果將自己的棋子拿起來的時候，下面有對方的棋子，而且對方因你將棋子拿起來而連線成功，也算對方獲勝。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;遊戲畫面：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/WinstonNOhnoes_home.png&quot; alt=&quot;遊戲主畫面&quot; width=&quot;400px&quot; /&gt;
+&lt;img src=&quot;/blogs/images/WinstonNOhnoes_playground.png&quot; alt=&quot;對戰畫面&quot; width=&quot;400px&quot; /&gt;
+&lt;img src=&quot;/blogs/images/WinstonNOhnoes_end.png&quot; alt=&quot;結束畫面&quot; width=&quot;400px :margin-bottom=&amp;quot;10px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;遊戲玩法：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;按下Start之後，會進入遊戲畫面。上方會顯示目前是哪個玩家的回合。同時也列出玩家還沒下過的棋子。&lt;/li&gt;
+  &lt;li&gt;點選想要下的棋子之後，再點選要下的位置。&lt;/li&gt;
+  &lt;li&gt;玩家一為Winston，玩家二為Ohnoes。兩人輪流下棋，直到有一方獲得勝利。&lt;/li&gt;
+  &lt;li&gt;結束遊戲之後，點選任意位置即可回到主畫面。再次按下Start就可以再玩一次。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;遊戲連結：&lt;/strong&gt;&lt;a href=&quot;https://shincar.github.io/games/WinstonNOhnoes.html&quot;&gt;點我玩 Winston &amp;amp; Ohnoes&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;後記：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;原本的版本只有很單調的兩個顏色的圈圈，Demo給老婆看的時候，她說：這配色看來很不吸引人。 QQ&lt;/p&gt;
+
+&lt;p&gt;早上跟Alvin討論時，本來要用他跟妹妹的大頭照當玩家的圖示。結果他說他想要&lt;a href=&quot;https://www.khanacademy.org/&quot;&gt;Khan Academy&lt;/a&gt;的Ohnoes。所以我就把Winston跟Ohnes找來當素材啦! 希望他們不會介意。&lt;/p&gt;
+
+&lt;p&gt;如果有侵權問題的話，可以到&lt;a href=&quot;https://github.com/shincar/shincar.github.io/issues&quot;&gt;這裡&lt;/a&gt;留言給我。謝啦~ 下次見~ 拜拜&lt;/p&gt;</content><author><name></name></author><summary type="html">這個作品是改編自一個我覺得很有趣的桌遊，叫做[奇雞連連][gobblet-gobbers]。是我跟Alvin去年在桃園展演中心的桌遊展接觸到的遊戲。基本上像是進階版的 O X 遊戲。當時買了卡卡頌和速速城國，考慮到不想一口氣買太多，所以沒買奇雞連連。一直有點後悔沒買，學了ProcessJS之後，就想說拿他的規則來寫一個網頁小遊戲當練功吧!</summary></entry><entry><title type="html">My first game</title><link href="http://localhost:4000/blogs/%E7%94%9F%E6%B4%BB/2019/01/30/my-first-game.html" rel="alternate" type="text/html" title="My first game" /><published>2019-01-30T01:00:26+08:00</published><updated>2019-01-30T01:00:26+08:00</updated><id>http://localhost:4000/blogs/%E7%94%9F%E6%B4%BB/2019/01/30/my-first-game</id><content type="html" xml:base="http://localhost:4000/blogs/%E7%94%9F%E6%B4%BB/2019/01/30/my-first-game.html">&lt;p&gt;Here is my first game - &lt;a href=&quot;https://shincar.github.io/games/ClickGame.html&quot;&gt;Click Game&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Actually it’s not a game. It’s just a prototype of game that use ProcessJS to create a board and let user to click on the grid. It’s a course project when I learned in &lt;a href=&quot;https://www.khanacademy.org/computing/computer-programming/programming&amp;quot;&quot;&gt;Khan Academy&lt;/a&gt;. Now I just finished the course and thought it would be a good idea to use github pages to host a website with my kid. We could learn together and I could guide him to the world of programming sometimes.&lt;/p&gt;</content><author><name></name></author><summary type="html">Here is my first game - Click Game.</summary></entry></feed>
