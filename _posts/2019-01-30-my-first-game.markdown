@@ -3,6 +3,7 @@ layout: post
 title:  "My first game"
 date:   2019-01-30 01:00:26 +0800
 categories: 生活
+author: adam
 ---
 Here is my first game - [Click Game][click-game]. 
 

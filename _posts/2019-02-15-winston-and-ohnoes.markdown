@@ -1,8 +1,9 @@
 ---
 layout: post
 title:  "趁新鮮記錄一下我的第二個作品 - Winson & Ohnoes"
-date:   2019-02-13 12:00:00 +0800
+date:   2019-02-15 12:00:00 +0800
 categories: HTML ProcessJS
+author: adam
 ---
 這個作品是改編自一個我覺得很有趣的桌遊，叫做[奇雞連連][gobblet-gobbers]。是我跟Alvin去年在桃園展演中心的桌遊展接觸到的遊戲。基本上像是進階版的 O X 遊戲。當時買了卡卡頌和速速城國，考慮到不想一口氣買太多，所以沒買奇雞連連。一直有點後悔沒買，學了[ProcessJS][projessjs]之後，就想說拿他的規則來寫一個網頁小遊戲當練功吧!
 
