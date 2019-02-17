@@ -3,6 +3,7 @@ layout: post
 title:  "Add a theme for a blog"
 date:   2019-02-13 12:00:00 +0800
 categories: HTML CSS
+permalink: /:year-:month-:day-:title
 author: adam
 ---
 I'm now mastered [Intro to HTML/CSS: Making webpages][khan-course] in Khan Academy. So, next step is to add a theme to style this blog with CSS. In this [page][khan-course-page], it provided some tips and I will use it to have my blog looks more pretty.
