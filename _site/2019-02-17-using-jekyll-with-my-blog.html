@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Adam & Alvin's Fun Lab</title>
+  <title>Adam & Alvin's Fun Lab - 使用jekyll寫blog</title>
   <link rel="stylesheet" href="assets/css/style.css" type="text/css">
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
@@ -26,26 +26,29 @@
 
 <div id="main">
     <div id="header">
-		<div id="hdr-overlay"></div>
-		<div id="hdr-box1" class="box"></div>
-		<div id="hdr-box2" class="box"></div>
-		<div id="hdr-box3" class="box"></div>
-		<div id="hdr-box4" class="box"></div>
-		<h1><a href="http://localhost:4000/blogs/">Adam & Alvin's Fun Lab</a></h1>
-		<h2>A secret place for fun projects. </h2>
-	</div>
+	  <div id="hdr-overlay"></div>
+	  <div id="hdr-box1" class="box"></div>
+	  <div id="hdr-box2" class="box"></div>
+	  <div id="hdr-box3" class="box"></div>
+	  <div id="hdr-box4" class="box"></div>
+	  <h1><a href="http://localhost:4000/blogs/">Adam & Alvin's Fun Lab</a></h1>
+	  <h2>A secret place for fun projects. </h2>
+</div>
+
 
     <ul id="menu">
-		<li><a class="sel" href="#"><span></span>Lorem</a></li>
-		<li><a href="#"><span></span>Ipsum</a></li>
-		<li><a href="#"><span></span>Dolor</a></li>
-		<li><a href="#"><span></span>Sit amet</a></li>
-		<li><a href="#"><span></span>Aliquip</a></li>
-	</ul>
+		  <li><a class="sel" href="#"><span></span>Lorem</a></li>
+		  <li><a href="#"><span></span>Ipsum</a></li>
+		  <li><a href="#"><span></span>Dolor</a></li>
+		  <li><a href="#"><span></span>Sit amet</a></li>
+		  <li><a href="#"><span></span>Aliquip</a></li>
+  	</ul>
     
     <div id="content">
         <div id="left">
-        <p>隨著文章越來越多，決定把BLOG改版一下，主要想做的是</p>
+        <h3 class="ttl">使用jekyll寫blog</h3>
+<h4 class="info">Post by adam at 2019-02-17</h4>
+<p>隨著文章越來越多，決定把BLOG改版一下，主要想做的是</p>
 <ul>
   <li>能好好將文章分類。</li>
   <li>讓每次寫文章所需要的前置步驟越少越好。</li>
@@ -66,22 +69,26 @@ bundler <span class="nb">exec </span>jekyll serve</code></pre></figure>
 <p>看完tutorial之後，學到的密技</p>
 <ul>
   <li>每篇文章的front matter加入permalink，這樣url不會因categories而變的世界長。</li>
+  <li>新增一個_layouts資料夾，重新把原本的版型加到post.html (Minimai這個theme預設文章會套用的layout裡的post.html)</li>
+  <li>把原本我<a href="https://shincar.github.io/blogs/2019-02-13-add-a-theme-for-a-blog">改編</a>的css放到assets/css裡，再把post.html裡css的相對路徑改對，原本的theme就回來啦！科科</li>
+  <li>發現標題、日期跟作者資訊不見了。原來是因為我漏了。把post.html改了一下，就統一加好了。舒服~</li>
 </ul>
 
 <p>P.S. 當新增文章的時候，如果在markdown裡date的時間是未來時間的話，這篇文章就不會顯示出來。一開始我以為是我什麼語法用錯。後來才發現我把前一篇文章的時間直接複制貼上過來改日期。結果文章一直沒顯示是因為那篇是晚上10點多寫的，這篇是早上8點起來寫的。耍笨了 Orz</p>
 
 
-        </div>
-    <div id="right">
-        </div>
+
+         </div>
+        <div id="right">
+</div>
+
         
         <div class="cleaner"></div>
-
-		<div id="footer">
-			Copyright © shincar.github.io 
-		</div>
     </div>
-    
+    <div id="footer">
+Copyright © shincar.github.io 
+</div>
+
 </div>
 
 </body>

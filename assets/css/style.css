@@ -115,9 +115,9 @@ body {
 	}
 #content a {
     text-decoration: none;
-	padding: 2px 3px;
+	  padding: 2px 3px;
     color: #40A310;
-	background: transparent;
+	  background: transparent;
 	}
 #content a:hover {
     text-decoration: none;
@@ -127,14 +127,28 @@ body {
 #content .ttl {
     color: #333;
 }
+#content .ttl a {
+    color: #333;
+}
 #content .info {
+    font-size: 14px;
     color: #40A310;
     text-align: right;
 }
     
 #content p {
 	margin: 0.4em 0;
-	}
+}
+
+#content .read-more {
+  padding: 0px 20px;
+  text-align:right;
+}
+
+#content .read-more a {
+  font-size: 14px;
+}	
+
 #left {
 	float: left;
 	width: 724px;
@@ -143,11 +157,11 @@ body {
 	}
 #left h3 {
 	margin: 0.5em 0 0.3em;
-    padding: 0px 20px;
+  padding: 0px 20px;
 	font-size: 20px;
 	font-weight: bold;
-    background: #5DC928;
-	}
+  background: #5DC928;
+}
 #left p {
     margin: 1em 0;
     padding: 0px 20px;
@@ -168,7 +182,7 @@ body {
 	}
 #left h4 {
 	margin: 0 0 0 6em;
-    padding: 10px 20px;
+  padding: 10px 20px;
 	font-size: 100%;
 	font-weight: bold;
 	}
@@ -179,7 +193,7 @@ body {
 	list-style-position: inside;
 	}
 #left li {
-    text-indent: -25px;
+  text-indent: -25px;
 }
     
 #right {
@@ -250,9 +264,9 @@ body {
     color: #40A310;
 	background: #79DB4A;
 	border-color: #5DC928;
-	}
+}
 #footer a {
 	padding: 3px 5px;
-	}
+}
 
 

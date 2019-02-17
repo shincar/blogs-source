@@ -25,10 +25,13 @@ bundler exec jekyll serve
 
 看完tutorial之後，學到的密技
 - 每篇文章的front matter加入permalink，這樣url不會因categories而變的世界長。
-
+- 新增一個_layouts資料夾，重新把原本的版型加到post.html (Minimai這個theme預設文章會套用的layout裡的post.html)
+- 把原本我[改編][add-theme-with-css]的css放到assets/css裡，再把post.html裡css的相對路徑改對，原本的theme就回來啦！科科
+- 發現標題、日期跟作者資訊不見了。原來是因為我漏了。把post.html改了一下，就統一加好了。舒服~
 
 P.S. 當新增文章的時候，如果在markdown裡date的時間是未來時間的話，這篇文章就不會顯示出來。一開始我以為是我什麼語法用錯。後來才發現我把前一篇文章的時間直接複制貼上過來改日期。結果文章一直沒顯示是因為那篇是晚上10點多寫的，這篇是早上8點起來寫的。耍笨了 Orz
 
 [jekyll]: https://jekyllrb.com/
 [jekyll-documents]: https://jekyllrb.com/docs/
 [jekyll-youtube-tutorial]: https://www.youtube.com/watch?v=T1itpPvFWHI&list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB
+[add-theme-with-css]: https://shincar.github.io/blogs/2019-02-13-add-a-theme-for-a-blog

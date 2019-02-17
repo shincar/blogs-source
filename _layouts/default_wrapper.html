@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Adam & Alvin's Fun Lab - My first game</title>
+  <title>Adam & Alvin's Fun Lab - {{ page.title }}</title>
   <link rel="stylesheet" href="assets/css/style.css" type="text/css">
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
@@ -25,16 +25,7 @@
 <div id="topbg"></div>
 
 <div id="main">
-    <div id="header">
-	  <div id="hdr-overlay"></div>
-	  <div id="hdr-box1" class="box"></div>
-	  <div id="hdr-box2" class="box"></div>
-	  <div id="hdr-box3" class="box"></div>
-	  <div id="hdr-box4" class="box"></div>
-	  <h1><a href="http://localhost:4000/blogs/">Adam & Alvin's Fun Lab</a></h1>
-	  <h2>A secret place for fun projects. </h2>
-</div>
-
+    {% include header.html %}
 
     <ul id="menu">
 		  <li><a class="sel" href="#"><span></span>Lorem</a></li>
@@ -46,25 +37,13 @@
     
     <div id="content">
         <div id="left">
-        <h3 class="ttl">My first game</h3>
-<h4 class="info">Post by adam at 2019-01-30</h4>
-<p>Here is my first game - <a href="https://shincar.github.io/games/ClickGame.html">Click Game</a>.</p>
-
-<p>Actually it’s not a game. It’s just a prototype of game that use ProcessJS to create a board and let user to click on the grid. It’s a course project when I learned in <a href="https://www.khanacademy.org/computing/computer-programming/programming&quot;">Khan Academy</a>. Now I just finished the course and thought it would be a good idea to use github pages to host a website with my kid. We could learn together and I could guide him to the world of programming sometimes.</p>
-
-
-
+        {{ content }}
          </div>
-        <div id="right">
-</div>
-
+        {% include right.html %}
         
         <div class="cleaner"></div>
     </div>
-    <div id="footer">
-Copyright © shincar.github.io 
-</div>
-
+    {% include footer.html %}
 </div>
 
 </body>
