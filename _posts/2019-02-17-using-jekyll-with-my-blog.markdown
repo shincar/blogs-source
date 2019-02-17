@@ -28,6 +28,10 @@ bundler exec jekyll serve
 - 新增一個_layouts資料夾，重新把原本的版型加到post.html (Minimai這個theme預設文章會套用的layout裡的post.html)
 - 把原本我[改編][add-theme-with-css]的css放到assets/css裡，再把post.html裡css的相對路徑改對，原本的theme就回來啦！科科
 - 發現標題、日期跟作者資訊不見了。原來是因為我漏了。把post.html改了一下，就統一加好了。舒服~
+- home.html跟post.html用一樣的版型，可以把版型提升成wrapper.html，再讓home和post都繼承同一個版型即可。
+- home的內容改成讀取site.posts把所有的文章列出來，並且只列出post.excerpt內容跟繼續閱讀進入全文的post頁面。
+
+就大功告成了！之後等文章再多一點，再把home.html改成只顯示10篇文章之類的。接下來就是看右邊要放什麼內容啦~
 
 P.S. 當新增文章的時候，如果在markdown裡date的時間是未來時間的話，這篇文章就不會顯示出來。一開始我以為是我什麼語法用錯。後來才發現我把前一篇文章的時間直接複制貼上過來改日期。結果文章一直沒顯示是因為那篇是晚上10點多寫的，這篇是早上8點起來寫的。耍笨了 Orz
 
