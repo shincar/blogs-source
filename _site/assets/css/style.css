@@ -153,8 +153,8 @@ body {
 	float: left;
 	width: 724px;
 	border-right: 1px dotted white;
-    border-color: #40A310;
-	}
+  border-color: #40A310;
+}
 #left h3 {
 	margin: 0.5em 0 0.3em;
   padding: 0px 20px;
@@ -200,12 +200,13 @@ body {
 	float: right;
 	width: 270px;
 	margin: 0 20px 0 0;
-	padding: 10px 0;
 	}
 #right h3 {
 	clear: left;
 	margin: 0.5em 0 0.3em 0;
-	font-size: 12px;
+	padding: 0px 5px;
+	font-size: 20px;
+  border: 1px dotted green;
 	}
 #right h3 span {
 	display: inline-block;
@@ -214,6 +215,10 @@ body {
 	border: 1px solid silver;
 	vertical-align: middle;
 	}
+#right p {
+  margin: 0 0;
+  padding: 0px 20px;
+}
 #right .photo {
 	float: left;
 	margin: 0 15px 15px 0;
