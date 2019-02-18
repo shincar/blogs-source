@@ -198,7 +198,7 @@ body {
     
 #right {
 	float: right;
-	width: 200px;
+	width: 300px;
 	margin: 0 20px 0 0;
 	padding: 10px 0;
 	}
@@ -229,7 +229,7 @@ body {
 #rbox {
 	float: left;
 	position: relative;
-	width: 180px;
+	width: 270px;
 	margin: 15px 0 20px 0;
 	padding: 2px 5px 2px 30px;
 	font-size: 10px;
