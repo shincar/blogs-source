@@ -17,7 +17,7 @@ author: adam
 - PHP 5.5, and PHP 7.2 (beta)
 - Go 1.9, and Go 1.11 (beta)
 
-因為工作的關係，曾經跟Python跟Node.js是當過朋友。[Node.js][node.js]是我2011年時支援過的一個專案，開發一支用Node.js為基礎的手機作業系統。那時的Node.js還不是很成熟，但是我對它event-driven的玩法一直覺得很酷。後來那個專案胎死腹中，我也跟著就回頭做其他的專案。想不到現在Node.js還蠻夯的，剛好Google Cloud Platform現在有支援Node.js，就決定給老朋友一個機會啦！
+因為工作的關係，曾經跟Python跟Node.js當過朋友。[Node.js][node.js]是我2011年時支援過的一個專案，開發一支用Node.js為基礎的手機作業系統。那時的Node.js還不是很成熟，但是我對它event-driven的玩法一直覺得很酷。後來那個專案胎死腹中，我也跟著就回頭做其他的專案。想不到現在Node.js還蠻夯的，剛好Google Cloud Platform現在有支援Node.js，就決定給老朋友一個機會啦！
 
 兩樣都決定好之後，就是開工啦！
 
@@ -54,7 +54,14 @@ app.listen(PORT, () => {
 // [END gae_node_request_example]
 {% endhighlight %}
 
-重點只有一個，就是send('Hello, world!')這行，server是靠這行把html傳給client。所有我只要把Winston & Ohnoes的html檔案從這裡送出去，可能就收工了。查了一下Node.js送檔案內容的方法，是[res.sendFile()][response-send-file]。
+重點只有一個，就是send('Hello, world!')這行，server是靠這行把html傳給client。所以我只要把Winston & Ohnoes的html檔案從這裡送出去。查了一下Node.js送檔案內容的方法，是[res.sendFile()][response-send-file]。app.get()那行，從send('Hello, world!')改成sendFile()，然後把html在server上的路徑串上去， 可能就收工了
+
+{% highlight javascript %}
+app.get('/', (req, res) => {
+  console.log('Send file: ' + path.join(__dirname + '/WinstonNOhnoes_Fullscreen.html'));
+  res.sendFile(path.join(__dirname + '/WinstonNOhnoes_Fullscreen.html'));
+});
+{% endhighlight %}
 
 試著下
 {% highlight shell %}
