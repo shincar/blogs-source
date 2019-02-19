@@ -22,6 +22,8 @@
   <script async custom-element="amp-auto-ads"
           src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
   </script>
+  <div id="fb-root"></div>
+  <script async defer src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.2"></script>
 </head>
 <body>
 <div id="topbg"></div>
@@ -40,6 +42,7 @@
     <div id="content">
         <div id="left">
         {{ content }}
+        <div class="fb-like" data-href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
          </div>
         {% include right.html %}
         

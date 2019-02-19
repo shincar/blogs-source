@@ -258,6 +258,13 @@ body {
 	font-size: 14px;
 	line-height: 25px;
 	}
+#right .icon-link {
+  margin: 5px 20px;
+}
+
+#right .icon-link a {
+  background: transparent;
+}
 
 #footer {
 	margin: 10px 0 10px 0;
