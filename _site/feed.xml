@@ -1,4 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blogs/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blogs/" rel="alternate" type="text/html" /><updated>2019-02-18T09:19:39+08:00</updated><id>http://localhost:4000/blogs/feed.xml</id><title type="html">Adam &amp;amp; Alvin’s Fun Lab</title><subtitle>A SECRET PLACE FOR FUN PROJECTS</subtitle><entry><title type="html">使用jekyll寫blog</title><link href="http://localhost:4000/blogs/2019-02-17-using-jekyll-with-my-blog" rel="alternate" type="text/html" title="使用jekyll寫blog" /><published>2019-02-17T08:00:00+08:00</published><updated>2019-02-17T08:00:00+08:00</updated><id>http://localhost:4000/blogs/using-jekyll-with-my-blog</id><content type="html" xml:base="http://localhost:4000/blogs/2019-02-17-using-jekyll-with-my-blog">&lt;p&gt;隨著文章越來越多，決定把BLOG改版一下，主要想做的是&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blogs/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blogs/" rel="alternate" type="text/html" /><updated>2019-02-19T09:07:51+08:00</updated><id>http://localhost:4000/blogs/feed.xml</id><title type="html">Adam &amp;amp; Alvin’s Fun Lab</title><subtitle>A SECRET PLACE FOR FUN PROJECTS</subtitle><entry><title type="html">Winson &amp;amp; Ohnoes的改版事項</title><link href="http://localhost:4000/blogs/2019-02-19-add-settings-of-winston-and-ohnoes" rel="alternate" type="text/html" title="Winson &amp; Ohnoes的改版事項" /><published>2019-02-19T08:00:00+08:00</published><updated>2019-02-19T08:00:00+08:00</updated><id>http://localhost:4000/blogs/add-settings-of-winston-and-ohnoes</id><content type="html" xml:base="http://localhost:4000/blogs/2019-02-19-add-settings-of-winston-and-ohnoes">&lt;p&gt;跟老婆、Alvin玩了很多次&lt;a href=&quot;https://shincar.github.io/games/WinstonNOhnoes.html&quot;&gt;Winston &amp;amp; Ohnoes&lt;/a&gt;之後，發現先手優勢確實蠻大的，所以有了改動規則的念頭。另外，分享到ptt之後，也得到一些建議。列在下面當TODO List，以免忘記。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ToDo List:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;加入全螢幕畫面。&lt;/li&gt;
+  &lt;li&gt;加入網路對戰功能。&lt;/li&gt;
+  &lt;li&gt;加入設定頁面。可以設定每個人能使用的棋子大小、數量。&lt;/li&gt;
+  &lt;li&gt;加入電腦對戰功能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;全螢幕畫面&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;目前已經完成，在主畫面上有個Fullscreen的按鈕，按下之後會帶到全螢幕版型的遊戲畫面。由於技術還沒有很好，只能堪用。請大家將就一下。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;網路對戰功能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;要學習&lt;a href=&quot;https://socket.io/&quot;&gt;socket.io&lt;/a&gt;，另外，要把遊戲host在可以跑server side javascript的伺服器。可能會放在&lt;a href=&quot;https://cloud.google.com&quot;&gt;google cloud platform&lt;/a&gt;。看來不是短時間能做出來的功能。Orz&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;設定頁面&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;主要是先手優勢大，要改善這遊戲的平衡，只好從棋子的大小和數量做起。後來轉念一想，讓棋子大小和數量可以設定，大家就可以依照自己的喜好做調整，自己的遊戲自己設。之後可能還可以設定要3x3、4x4、5x5之類的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;加入電腦對戰功能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;一個人的時候，自己玩兩個人覺得有點孤單。剛好對AI也有點興趣，找時間也來研究一下這個功能。&lt;/p&gt;</content><author><name>adam</name></author><summary type="html">跟老婆、Alvin玩了很多次Winston &amp;amp; Ohnoes之後，發現先手優勢確實蠻大的，所以有了改動規則的念頭。另外，分享到ptt之後，也得到一些建議。列在下面當TODO List，以免忘記。</summary></entry><entry><title type="html">使用jekyll寫blog</title><link href="http://localhost:4000/blogs/2019-02-17-using-jekyll-with-my-blog" rel="alternate" type="text/html" title="使用jekyll寫blog" /><published>2019-02-17T08:00:00+08:00</published><updated>2019-02-17T08:00:00+08:00</updated><id>http://localhost:4000/blogs/using-jekyll-with-my-blog</id><content type="html" xml:base="http://localhost:4000/blogs/2019-02-17-using-jekyll-with-my-blog">&lt;p&gt;隨著文章越來越多，決定把BLOG改版一下，主要想做的是&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;能好好將文章分類。&lt;/li&gt;
   &lt;li&gt;讓每次寫文章所需要的前置步驟越少越好。&lt;/li&gt;
