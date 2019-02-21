@@ -33,6 +33,22 @@ app.get('/chat', function(req, res) {
 })
 {% endhighlight %}
 
+
+使用者在瀏覽器的網址列輸入
+- https://shincar.appspot.com/ 就會和原本一樣，可以玩Winstons & Ohnoes
+- https://shincar.appspot.com/chat 則會導向/chat/index.html，輸入大名之後，就可以進入聊天室。
+
+另外，index.js裡socket.io的路徑，在examples裡是相對路徑
+{% highlight javascript %}
+var io = require('../..')(server);
+{% endhighlight %}
+要改成
+{% highlight javascript %}
+var io = require('socket.io')(server);
+{% endhighlight %}
+
+弄好之後，先在local環境下試試看，完全沒問題。科科
+
 [host-winstons-and-ohnoes-on-google-could-platform]: https://shincar.github.io/2019-02-19-host-winstons-and-ohnoes-on-google-could-platform
 [node.js]: https://nodejs.org/
 [socket.io]: https://socket.io/
