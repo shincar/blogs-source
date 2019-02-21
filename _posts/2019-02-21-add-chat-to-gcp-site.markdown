@@ -63,6 +63,15 @@ gcloud app deploy
 
 做到這裡可以想像一下，網路對戰功能到時要怎麼做啦~ 就像是兩個人進到同一個聊天室(對戰室)一樣。
 
+玩家一進入對戰室
+![玩家一進入對戰室]({{site.baseurl}}/images/socket.io-player1_enter.png){:width="400px"}
+
+玩家二進入對戰室
+![玩家二進入對戰室]({{site.baseurl}}/images/socket.io-lobby.png){:width="400px"}
+
+兩人開始對戰，直到遊戲結束
+![開始對戰]({{site.baseurl}}/images/socket.io-chat.png){:width="400px"}
+
 [host-winstons-and-ohnoes-on-google-could-platform]: https://shincar.github.io/2019-02-19-host-winstons-and-ohnoes-on-google-could-platform
 [node.js]: https://nodejs.org/
 [socket.io]: https://socket.io/
