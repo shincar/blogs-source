@@ -49,6 +49,20 @@ var io = require('socket.io')(server);
 
 弄好之後，先在local環境下試試看，完全沒問題。科科
 
+{% highlight shell %}
+npm install --save socket.io
+npm start
+{% endhighlight %}
+
+接下來就是部署到Google Cloud Platform
+{% highlight shell %}
+gcloud app deploy
+{% endhighlight %}
+
+就完成啦~ [點我開始聊天][gcp-shincar-chat-room]
+
+做到這裡可以想像一下，網路對戰功能到時要怎麼做啦~ 就像是兩個人進到同一個聊天室(對戰室)一樣。
+
 [host-winstons-and-ohnoes-on-google-could-platform]: https://shincar.github.io/2019-02-19-host-winstons-and-ohnoes-on-google-could-platform
 [node.js]: https://nodejs.org/
 [socket.io]: https://socket.io/
