@@ -125,4 +125,4 @@ app.listen(PORT, () => {
 [gpc-nodejs-quickstart]: https://cloud.google.com/appengine/docs/standard/nodejs/quickstart
 [response-send-file]: http://expressjs.com/en/api.html#res.sendFile
 [app-use]: http://expressjs.com/en/api.html#app.use
-[gpc-winstons-and-ohnoes]: http://shincar.appspot.com/
+[gpc-winstons-and-ohnoes]: https://shincar.appspot.com/
