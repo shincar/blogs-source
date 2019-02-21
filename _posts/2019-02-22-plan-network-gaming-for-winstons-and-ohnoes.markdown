@@ -55,8 +55,6 @@ author: adam
 - 指令：'fight change' 參數：username, grid, token
 - 指令：'fight end' 參數：winner
 
-從目前Winstons & Ohnoes的架構index.js就是伺服器端要實作指令的地方。而玩家端實作則是打算新增一個games/client.js，做完之後，讓WinstonNOhnoes_Fullscreen.html使用。
-
 指令分析完之後，接下來在伺服器的部分，還有資料要存起來的問題。目前還沒有要和資料庫做連結，所以只要設計資料結構就好。從上面的流程分析大致上也能幫助思考伺服器端要存放哪些資料可以讓網路對戰能夠進行。例如：步驟一看完就會知道伺服器端要存一個玩家列表。步驟二看完就知道要有個對戰室列表。加上對戰室中要存目前對戰室的人數、對戰室的最大人數（以Winstons & Ohnoes來說是2）...等等。下面就把我的理解整理出來，要實作的時候，就參考這份資料結構啦！
 
 **伺服器資料結構**
@@ -77,6 +75,8 @@ author: adam
   - moves: a collection of moves players performed
   - winner: Player who won this game
 
-完成socket.io的部份之後，再來改遊戲畫面，加入一些按鈕、輸入框等，讓玩家可以送出指令。可能網路對戰功能就完成了！有點興奮 呼～
+從目前Winstons & Ohnoes的架構index.js就是伺服器端要實作指令的地方。而玩家端實作則是打算新增一個games/client.js，做完之後，讓WinstonNOhnoes_Fullscreen.html使用。
+
+等socket.io的部份之後，再來改遊戲畫面，加入一些按鈕、輸入框等，讓玩家可以送出指令。可能網路對戰功能就完成了！有點興奮 呼～
 
 [socket.io]: https://socket.io/
