@@ -19,7 +19,7 @@ body {
 #main h1 a {
   text-decoration: none;
   color: #333;
-}	
+}
 
 #topbg {
 	position: absolute; top: 0; left: 0; z-index: -1;
@@ -135,7 +135,7 @@ body {
     color: #40A310;
     text-align: right;
 }
-    
+
 #content p {
 	margin: 0.4em 0;
 }
@@ -147,7 +147,7 @@ body {
 
 #content .read-more a {
   font-size: 14px;
-}	
+}
 
 #left {
 	float: left;
@@ -189,13 +189,24 @@ body {
 #left ul {
     margin-top: 0px;
     padding-left: 60px;
-	list-style-type: square;
-	list-style-position: inside;
+		list-style-type: square;
+		list-style-position: inside;
 	}
+#left ol {
+	margin-top: 0px;
+	padding-left: 60px;
+			list-style-position: inside;
+}
+
 #left li {
   text-indent: -25px;
 }
-    
+
+#left li li {
+	list-style-type: none;
+  text-indent: -40px;
+}
+
 #right {
 	float: right;
 	width: 270px;
@@ -280,5 +291,3 @@ body {
 #footer a {
 	padding: 3px 5px;
 }
-
-
