@@ -31,7 +31,7 @@ author: adam
 5. 伺服器指令：'fight start' 參數：firstplayer
 6. 玩家指令：'fight command' 參數：username, grid, token
 7. 伺服器指令：'fight change' 參數：username, grid, token
-8. 玩家指令：'fight command' 參數：username, grid, token
+8. 玩家指令：'fight move' 參數：username, grid, token
 9. 伺服器指令：'fight change' 參數：username, grid, token
 10. 伺服指令：'fight end' 參數：winner
 
@@ -39,18 +39,20 @@ author: adam
 
 **額外指令**
 - 伺服器指令：'add user result' 參數：result, message
+- 伺服器指令：'join fightroom result' 參數：result, message
 
-（烏鴉飛過...)本來以為會很多，結果也就只有這個...XD
+（烏鴉飛過...)本來以為會很多，結果也就只有這些...XD
 
 整理一下要實做的指令如下：
 
 **玩家指令**
 - 指令：'add user' 參數：username
 - 指令：'join fightroom' 參數：username, fightroomName
-- 指令：'fight command' 參數：username, grid, token
+- 指令：'fight move' 參數：username, grid, token
 
 **伺服器指令**
 - 指令：'add user result' 參數：result, message
+- 指令：'join fightroom result' 參數：result, message
 - 指令：'fight start' 參數：firstplayer
 - 指令：'fight change' 參數：username, grid, token
 - 指令：'fight end' 參數：winner
@@ -70,8 +72,8 @@ author: adam
 - Fightroom: A fight room for players
   - name: Fightroom name
   - maxPlayerCount: 2
-  - currentPlayer: A collection of player name
-  - whosTurn: Player name who now could perform a move
+  - currentPlayers: A collection of player name
+  - currentPlayer: Player name who now could perform a move
   - moves: a collection of moves players performed
   - winner: Player who won this game
 
