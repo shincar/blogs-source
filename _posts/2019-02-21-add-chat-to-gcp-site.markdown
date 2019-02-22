@@ -81,6 +81,6 @@ gcloud app deploy
 [node.js]: https://nodejs.org/
 [socket.io]: https://socket.io/
 [winstons-and-ohnoes-v2]: https://github.com/shincar/WinstonsNOhnoes_v2
-[gpc-winstons-and-ohnoes]: https://shincar.appspot.com
+[gpc-winstons-and-ohnoes]: https://20190221t154429-dot-shincar.appspot.com/
 [socket.io-github]: https://github.com/socketio/socket.io
 [gcp-shincar-chat-room]: https://shincar.appspot.com/chat/
