@@ -207,6 +207,10 @@ body {
   text-indent: -40px;
 }
 
+#left #disqus_thread {
+	padding: 5px;
+}
+
 #right {
 	float: right;
 	width: 270px;
