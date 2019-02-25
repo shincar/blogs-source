@@ -4,6 +4,7 @@ title:  "Winson & Ohnoes的改版事項"
 date:   2019-02-19 08:00:00 +0800
 categories: HTML ProcessJS
 permalink: /:year-:month-:day-:title
+comments: true
 author: adam
 ---
 跟老婆、Alvin玩了很多次[Winston & Ohnoes][winston-and-ohnoes]之後，發現先手優勢確實蠻大的，所以有了改動規則的念頭。另外，分享到ptt之後，也得到一些建議。列在下面當TODO List，以免忘記。

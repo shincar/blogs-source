@@ -4,6 +4,7 @@ title:  "趁新鮮記錄一下我的第二個作品 - Winson & Ohnoes"
 date:   2019-02-15 12:00:00 +0800
 categories: HTML ProcessJS
 permalink: /:year-:month-:day-:title
+comments: true
 author: adam
 ---
 這個作品是改編自一個我覺得很有趣的桌遊，叫做[奇雞連連][gobblet-gobblers]。是我跟Alvin去年在桃園展演中心的桌遊展接觸到的遊戲。基本上像是進階版的 O X 遊戲。當時買了卡卡頌和速速城國，考慮到不想一口氣買太多，所以沒買奇雞連連。一直有點後悔沒買，學了[ProcessJS][projessjs]之後，就想說拿他的規則來寫一個網頁小遊戲當練功吧!
@@ -37,7 +38,7 @@ author: adam
 原本的版本只有很單調的兩個顏色的圈圈，Demo給老婆看的時候，她說：這配色看來很不吸引人。 QQ
 
 早上跟Alvin討論時，本來要用他跟妹妹的大頭照當玩家的圖示。結果他說他想要[Khan Academy][khan-academy]的Ohnoes。所以我就把Winston跟Ohnes找來當素材啦! 希望他們不會介意。
-            
+
 如果有侵權問題的話，可以到[這裡][shincar-github]留言給我。謝啦~ 下次見~ 拜拜
 
 [gobblet-gobblers]: http://www.swanpanasia.com/products/get-bit
@@ -45,4 +46,3 @@ author: adam
 [winston-and-ohnoes]: https://shincar.github.io/games/WinstonNOhnoes.html
 [khan-academy]: https://www.khanacademy.org/
 [shincar-github]: https://github.com/shincar/shincar.github.io/issues
-

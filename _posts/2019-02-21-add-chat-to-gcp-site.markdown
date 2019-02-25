@@ -4,6 +4,7 @@ title:  "在Google Could Platform中，加入即時聊天室"
 date:   2019-02-21 08:00:00 +0800
 categories: HTML GCP Node.js soket.io
 permalink: /:year-:month-:day-:title
+comments: true
 author: adam
 ---
 [上一篇][host-winstons-and-ohnoes-on-google-could-platform]是把 Winston & Ohnoes 架到能支援[Node.js][node.js]的環境。接下來就是要能在這個環境下，提供簡單的連線溝通功能啦！連線溝通的功能，要靠[socket.io][socket.io]的幫忙。

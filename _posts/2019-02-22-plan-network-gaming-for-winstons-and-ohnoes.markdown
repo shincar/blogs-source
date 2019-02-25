@@ -4,6 +4,7 @@ title:  "規畫socket.io支援網路對戰所需要的流程與指令"
 date:   2019-02-22 02:00:00 +0800
 categories: soket.io
 permalink: /:year-:month-:day-:title
+comments: true
 author: adam
 ---
 了解[socket.io][socket.io]的運作之後，接下來要規畫如何在Winstons & Ohnoes裡面加入網路對戰的功能啦！基本上就是把玩家在遊戲裡的動作，都包裝成指令在玩家跟伺服器之間傳來傳去。往下看下去應該就會懂了！目前只規畫最基本能對戰所需要的步驟。

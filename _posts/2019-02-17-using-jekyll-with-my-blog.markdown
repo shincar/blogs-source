@@ -4,6 +4,7 @@ title:  "使用jekyll寫blog"
 date:   2019-02-17 8:00:00 +0800
 categories: HTML jekyll
 permalink: /:year-:month-:day-:title
+comments: true
 author: adam
 ---
 隨著文章越來越多，決定把BLOG改版一下，主要想做的是

@@ -4,6 +4,7 @@ title:  "把Winstons & Ohnoes掛到Google Cloud Platform"
 date:   2019-02-19 20:00:00 +0800
 categories: HTML GCP Node.js
 permalink: /:year-:month-:day-:title
+comments: true
 author: adam
 ---
 為了要[Winstons & Ohnoes][winstons-and-ohnoes]裡加入網路對戰功能，就不能只host在[github][github].因為github只支援靜態網頁。網路對戰的話，兩個人必須要能跟彼此溝通。這時靜態網頁就不夠用了。剛好之前有摸過一點點[Google Cloud Platform][google-cloud-platform]，就把[Winstons & Ohnoes][winstons-and-ohnoes]掛上去看看吧！
