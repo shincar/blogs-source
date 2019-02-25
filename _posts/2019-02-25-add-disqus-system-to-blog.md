@@ -9,8 +9,7 @@ author: adam
 ---
 寫了那麼多篇文章，當然是希望哪天有人看到。為了讓來看的人有機會留下足跡，或是對文章的內容提出疑問。所以有個留言板也是很正常的。
 
-起手式一樣是GOOGLE一下，馬上就找到一個可以跟jekyll整合的獨立留言系統，叫做[Disqus][disqus]。這系統蠻方便的，可以讓使
-用者決定要用哪個帳號登入。預設支援disqus、facebook、google或twitter登入。就可以留言啦！
+起手式一樣是GOOGLE一下，馬上就找到一個可以跟jekyll整合的獨立留言系統，叫做[Disqus][disqus]。這系統蠻方便的，可以讓使用者決定要用哪個帳號登入。預設支援disqus、facebook、google或twitter登入。就可以留言啦！
 
 我是直接用google account登入創建Disqus帳號，然後選擇"I want to install Disqus on my site"
 ![Disqus get started]({{site.baseurl}}/images/disqus_get_started.png)
