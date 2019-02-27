@@ -149,6 +149,13 @@ body {
   font-size: 14px;
 }
 
+#content pre {
+	background-color: black;
+	font-size: 0.7em;
+	padding: 5px;
+	overflow-wrap: break-word;
+}
+
 #left {
 	float: left;
 	width: 724px;

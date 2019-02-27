@@ -49,9 +49,12 @@ GEM
       jekyll (~> 3.5)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
+    multi_json (1.13.1)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (3.0.3)
+    pygments.rb (1.2.1)
+      multi_json (>= 1.0.0)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -72,6 +75,8 @@ DEPENDENCIES
   jekyll-feed (~> 0.6)
   jekyll-theme-hacker
   minima (~> 2.0)
+  pygments.rb
+  rouge
   tzinfo-data
 
 BUNDLED WITH

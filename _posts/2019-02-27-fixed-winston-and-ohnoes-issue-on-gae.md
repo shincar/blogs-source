@@ -20,7 +20,7 @@ author: adam
 
 檢查到3.時發現是image在做怪，當ProcessJS試著預載圖檔時，沒辦法成功。所以就卡在那了。
 {% highlight javascript %}
-/＊ @pjs preload="images/cs-winston.png, images/cs-ohnoes.png"; ＊／
+/* @pjs preload="images/cs-winston.png, images/cs-ohnoes.png"; */
 {% endhighlight %}
 
 剛好在github裡有絕對路徑的圖檔URL可以用，就拿來試試看
