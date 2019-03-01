@@ -30,8 +30,9 @@
 <div id="topbg"></div>
 
 <div id="main">
+    <div id="header">
     {% include header.html %}
-
+    </div>
     <ul id="menu">
 		  <li><a class="sel" href="#"><span></span>Lorem</a></li>
 		  <li><a href="#"><span></span>Ipsum</a></li>
@@ -44,11 +45,14 @@
         <div id="left">
         {{ content }}
         </div>
+        <div id="right">
         {% include right.html %}
-
+        </div>
         <div class="cleaner"></div>
     </div>
+    <div id="footer">
     {% include footer.html %}
+    </div>
 </div>
 
 </body>
