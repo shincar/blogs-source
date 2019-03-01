@@ -10,6 +10,8 @@ author: adam
 經過幾天的努力，現在Winstons & Ohnoes終於可以支援網路對戰啦！萬歲！
 ![主畫面]({{site.baseurl}}/images/WinstonNOhnoesv2_main.png){:width="500px"}
 
+點我玩[Winstons & Ohnoes][gpc-winstons-and-ohnoes]
+
 玩法是點選網路對戰，進入對戰資訊頁面。填入一個對戰室名稱跟玩家大名之後，按下加入按鈕。
 
 ![對戰資訊畫面]({{site.baseurl}}/images/WinstonNOhnoesV2_BattleInfo.png){:width="500px"}
@@ -33,6 +35,9 @@ author: adam
 
 ![遊戲主畫面]({{site.baseurl}}/images/WinstonNOhnoesV2_BattleFull.png){:width="500px"}
 
+點我玩[Winstons & Ohnoes][gpc-winstons-and-ohnoes]
+
 這時可以按下取消，換個名字再加入對戰室哦！祝大家玩的愉快！如果有什麼建議歡迎留言告訴我哦！ :)
 
 [winston-and-ohnones]: https://shincar.github.io/blogs/2019-02-15-winston-and-ohnoes
+[gpc-winstons-and-ohnoes]: https://shincar.appspot.com/
