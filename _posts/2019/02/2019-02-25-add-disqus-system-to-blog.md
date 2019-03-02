@@ -12,12 +12,15 @@ author: adam
 起手式一樣是GOOGLE一下，馬上就找到一個可以跟jekyll整合的獨立留言系統，叫做[Disqus][disqus]。這系統蠻方便的，可以讓使用者決定要用哪個帳號登入。預設支援disqus、facebook、google或twitter登入。就可以留言啦！
 
 我是直接用google account登入創建Disqus帳號，然後選擇"I want to install Disqus on my site"
+
 ![Disqus get started]({{site.baseurl}}/images/disqus_get_started.png)
 
 填入正確資料之後，按下Create Site
+
 ![Create Site]({{site.baseurl}}/images/disqus_create_new_site.png)
 
 就會有在jekyll系統中，加入Disqus的語法，跟要加在哪邊的說明。
+
 ![Install instructions]({{site.baseurl}}/images/discus_jekyll_install_instructions.png){:width="600px"}
 
 它預設的說明是建議你每個post都加comments: true來決定要不要秀出留言系統。我自己是在_layouts\post.html裡也加了comments: true
