@@ -40,4 +40,4 @@ author: adam
 這時可以按下取消，換個名字再加入對戰室哦！祝大家玩的愉快！如果有什麼建議歡迎留言告訴我哦！ :)
 
 [winston-and-ohnones]: https://shincar.github.io/blogs/2019-02-15-winston-and-ohnoes
-[gpc-winstons-and-ohnoes]: https://shincar.appspot.com/
+[gpc-winstons-and-ohnoes]: https://20190301t085415-dot-shincar.appspot.com/
