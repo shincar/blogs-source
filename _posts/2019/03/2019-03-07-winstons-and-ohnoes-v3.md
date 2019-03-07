@@ -23,7 +23,7 @@ author: adam
 - 介面要能簡單的做出手機與電腦都能使用的版型
 - 介面的改動要容易，之後要擴充功能重覆使用原本的元件
 
-照例請出Google大神，果然找到一個設計良好的boardgame架構元件。名字淺顯易懂，就叫[boardgame.io][boardgame.io]，在github裡的範例剛好是Tic-Tak-Toe(就是OX遊戲)。照著指令把範例跑起來之後，看來蠻舒服的。接著就是把它的範例改成Winstons & Ohnoes的規則，就完成文字版的Winstons & Ohnoes v3啦！
+照例請出Google大神，果然找到一個設計良好的boardgame架構元件。名字淺顯易懂，就叫[boardgame.io][boardgame-io]，在github裡的範例剛好是Tic-Tak-Toe(就是OX遊戲)。照著指令把範例跑起來之後，看來蠻舒服的。接著就是把它的範例改成Winstons & Ohnoes的規則，就完成文字版的Winstons & Ohnoes v3啦！
 
 作者的目標應該是在設計遊戲邏輯的時候，幾乎可以完全不寫多餘的程式碼，這點我在剛開始用的時候，還摸不清楚。等到了解越多之後發現真的可以不用寫。另外，還看到裡面內建了socket.io，代表網路對戰也不是問題。讚啦！
 
@@ -32,5 +32,5 @@ author: adam
 等到Winstons & Ohnoes做的差不多的話，下一個目標來試試卡卡頌或是馬尼拉好了～ 拜拜
 
 [winstons-and-ohnoes-v3]: http://shincar.appspot.com/
-[boardgame.io]： https://boardgame.io/#/
+[boardgame-io]： https://boardgame.io
 [react]: https://reactjs.org/
