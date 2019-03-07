@@ -32,5 +32,5 @@ author: adam
 等到Winstons & Ohnoes做的差不多的話，下一個目標來試試卡卡頌或是馬尼拉好了～ 拜拜
 
 [winstons-and-ohnoes-v3]: http://shincar.appspot.com/
-[boardgame-io]： https://boardgame.io
+[boardgame-io]: https://boardgame.io
 [react]: https://reactjs.org/
