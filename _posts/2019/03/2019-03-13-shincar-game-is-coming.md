@@ -21,6 +21,7 @@ author: adam
 頁首跟頁尾很單純，側欄跟主畫面須要再細部規畫一下。
 
 **側欄**
+
 側欄目前想要提供的列表有
 - 使用者設定
 - Winstons & Ohnoes
@@ -28,9 +29,11 @@ author: adam
 這樣之後進大廳後，USE CASE應該是先到使用者設定頁面，輸入遊戲使用者名稱，然後點Winstons & Ohnoes裡面會要開房間跟目前的遊戲房列表。
 
 **主畫面**
+
 使用者點選側欄後，內容就會秀在主畫面裡。例如：點選使用者設定，就會跑出介面讓使用者改遊戲使用者名稱；點選Winstons & Ohnoes就進到遊戲主畫面。
 
 **聊天室**
+
 目前先只提供大廳模式，所有的人都可以在裡面打字聊天。可以最小化，以後再擴充。
 
 [think-in-react]: https://reactjs.org/docs/thinking-in-react.html
