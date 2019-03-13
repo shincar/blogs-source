@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "打造一個線上board game平台 - Part 1"
-date:   2019-03-07 02:00:00 +0800
+date:   2019-03-13 02:00:00 +0800
 categories: HTML shincar-game
 permalink: /:year-:month-:day-:title
 comments: true
