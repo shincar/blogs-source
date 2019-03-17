@@ -29,6 +29,6 @@ Alvin在學校表現時好時壞，美術是他比較不在行的。這週竟然
 
 我還有一個乖女鵝，我在弄Alvin的作品的時候，她三不五時就在一旁碎唸說那"我的作品呢？"、"你看...我有畫Rapunzel哦！"、"你有把我的Rapunzel拍起來嗎？"
 一聽就知道是在討關愛 XD 這麼可愛，當然也要幫她"展"一下，才四歲就能畫出以下成果：
-![Rapunzel by Sara]({{site.baseurl}}/images/Rapunzel_BySara.png)
+![Rapunzel by Sara]({{site.baseurl}}/images/Rapunzel_BySara.png){:width="600px"}
 
 我已經在期待這個小畫家以後的作品啦！
