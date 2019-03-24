@@ -19,7 +19,7 @@ author: adam
 把這段範例稍微修改一下，就加入連結讓每個人都可以點選來讀特定分類的文章了。接下來就是要為每個分類提供內容。我在根目錄下新增一個categories資料夾，然後新增每個分類的markdown。
 
 每個分類的front matter長類似這樣。
-{% hightlight javascript %}
+{% highlight javascript %}
 ---
 layout: category_page
 title: HTML
