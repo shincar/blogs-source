@@ -30,7 +30,7 @@ layout是這個頁面參考的template，title裡是每個分類的名字。這�
 
 在category_page.html裡，用page.title跟category[0]比對，完全相同的才秀出來。這樣就可以只列出這個分類的posts啦！
 
-[原始碼在這][]
+[原始碼在這][github-shincar-blogs]
 
 [jekyll-posts]: https://jekyllrb.com/docs/posts/
 [github-shincar-blogs]: https://github.com/shincar/blogs
