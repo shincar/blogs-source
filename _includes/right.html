@@ -6,7 +6,15 @@
   <div class="fb-like" data-href="{{ site.url }}{{ site.baseurl }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 </div>
 <h3>分類文章</h3>
-<div style="height: 250px;"></div>
+<ul>
+  {% for category in site.categories %}
+    <li>
+      <a href="{{ site.baseurl }}/categories/{{category[0]}}" title="view all posts">
+        {{category[0]}}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
 <h3>這裡可能有廣告</h3>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- blog_ad -->

@@ -1,0 +1,29 @@
+---
+layout: default_wrapper
+---
+{% if page.title == "all" %}
+  {% for category in site.categories %}
+    <h3>{{ category[0] }}</h3>
+    <ul>
+      {% for post in category[1] %}
+        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+{% else %}
+  {% for category in site.categories %}
+    {% if category[0] == page.title %}
+      <h3>文章分類：{{ category[0] }}</h3>
+      {% for post in category[1] %}
+      <h3 class="ttl"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+      <h4 class="info">Post by {{ post.author }} at {{ post.date | date: "%Y-%m-%d" }}</h4>
+      {% if post.excerpt %}
+        {{ post.excerpt }}
+      {% else %}
+        {{ post.content | strip_html | truncate: 250 }}
+      {% endif %}
+      <div class="read-more"><a href="{{ site.baseurl }}{{ post.url }}">繼續閱讀</a></div>
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endif %}

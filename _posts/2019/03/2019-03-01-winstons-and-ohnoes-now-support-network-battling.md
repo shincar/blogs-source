@@ -2,7 +2,7 @@
 layout: post
 title:  "Winstons & Ohnoes現在支援網路對戰囉！"
 date:   2019-03-01 02:00:00 +0800
-categories: HTML GAE ProcessJS GCP Node.js soket.io
+categories: HTML GAE ProcessJS GCP NodeJS soket.io
 permalink: /:year-:month-:day-:title
 comments: true
 author: adam
