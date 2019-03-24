@@ -32,6 +32,17 @@ kramdown:
 
 theme: minima
 
+collections:
+  my-categories:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "my-categories"
+    values:
+      layout: category_page
+
 plugins:
   - jekyll-feed
 

@@ -7,10 +7,10 @@
 </div>
 <h3>分類文章</h3>
 <ul>
-  {% for category in site.categories %}
+  {% for category in site.my-categories %}
     <li>
-      <a href="{{ site.baseurl }}/categories/{{category[0]}}" title="view all posts">
-        {{category[0]}}
+      <a href="{{ site.baseurl }}/my-categories/{{category.title}}" title="view all posts">
+        {{category.title}}
       </a>
     </li>
   {% endfor %}
