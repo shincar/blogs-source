@@ -30,7 +30,8 @@ layout是這個頁面參考的template，title裡是每個分類的名字。這�
 
 在category_page.html裡，用page.title跟category[0]比對，完全相同的才秀出來。這樣就可以只列出這個分類的posts啦！
 
-後記：
+**後記：**
+
 完成第一版之後，發現有的分類可能還不適合列出來。所以就研究了一下能不能只顯示我想要列出的分類。我找到的解法是在_config.yml中使用collections，在新增一個文章分類(my-categories)的collection，定義好之後新增一個目錄叫_my-categories。把原本每個類別的markdown放到這個目錄。然後修改一下right.html裡面分類文章改從my-categories裡面拿資訊。這樣就搞定收工囉！
 
 [原始碼在這][github-shincar-blogs]
