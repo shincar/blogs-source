@@ -45,7 +45,7 @@ defaults:
 
 paginate: 5
 
-paginate_path: "/page:num/"
+paginate_path: "pages/page:num/"
 
 plugins:
   - jekyll-feed
