@@ -2,7 +2,7 @@
 layout: default_wrapper
 ---
 
-{% for post in site.posts %}
+{% for post in paginator.posts %}
   <h3 class="ttl"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
   <h4 class="info">Post by {{ post.author }} at {{ post.date | date: "%Y-%m-%d" }}</h4>
   {% if post.excerpt %}
@@ -12,3 +12,21 @@ layout: default_wrapper
   {% endif %}
   <div class="read-more"><a href="{{ site.baseurl }}{{ post.url }}">繼續閱讀</a></div>
 {% endfor %}
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">
+      Previous
+    </a>
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">
+    Page: {{ paginator.page }} of {{ paginator.total_pages }}
+  </span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}
+</div>
