@@ -3,7 +3,7 @@ layout: post
 title: "在Winstons & Ohnoes裡加入新的遊戲大廳"
 date:   2019-03-13 20:00:00 +0800
 categories: HTML boardgame.io React
-permalink: /:year-:month-:day-:title
+# permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---

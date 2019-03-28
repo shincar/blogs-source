@@ -3,7 +3,7 @@ layout: post
 title: "分類文章上線！"
 date:   2019-03-24 02:00:00 +0800
 categories: jekyll
-permalink: /:year-:month-:day-:title
+# permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---

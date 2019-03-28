@@ -3,7 +3,7 @@ layout: post
 title:  "把Winstons & Ohnoes掛到Google Cloud Platform"
 date:   2019-02-19 20:00:00 +0800
 categories: HTML GCP NodeJS
-permalink: /:year-:month-:day-:title
+# permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---

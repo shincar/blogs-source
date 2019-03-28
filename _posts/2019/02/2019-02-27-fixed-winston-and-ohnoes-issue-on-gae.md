@@ -3,7 +3,7 @@ layout: post
 title:  "在Google App Engine中，Winstons & Ohnoes無法載入，原因出在PNG檔"
 date:   2019-02-25 02:00:00 +0800
 categories: HTML GAE ProcessJS
-permalink: /:year-:month-:day-:title
+# permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---

@@ -3,7 +3,7 @@ layout: post
 title: "用Google Cloud Datastore做為Winstons & Ohnoes的資料庫"
 date:   2019-03-14 02:00:00 +0800
 categories: HTML boardgame.io GCP
-permalink: /:year-:month-:day-:title
+# permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---

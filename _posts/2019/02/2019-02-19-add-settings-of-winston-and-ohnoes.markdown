@@ -3,7 +3,7 @@ layout: post
 title:  "Winson & Ohnoes的改版事項"
 date:   2019-02-19 08:00:00 +0800
 categories: HTML ProcessJS
-permalink: /:year-:month-:day-:title
+# permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---

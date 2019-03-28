@@ -3,7 +3,7 @@ layout: post
 title:  "規畫socket.io支援網路對戰所需要的流程與指令"
 date:   2019-02-22 02:00:00 +0800
 categories: soket.io
-permalink: /:year-:month-:day-:title
+# permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---
