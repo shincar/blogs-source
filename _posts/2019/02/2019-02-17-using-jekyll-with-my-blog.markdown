@@ -3,7 +3,7 @@ layout: post
 title:  "使用jekyll寫blog"
 date:   2019-02-17 8:00:00 +0800
 categories: HTML jekyll
-# permalink: /:year-:month-:day-:title
+permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---

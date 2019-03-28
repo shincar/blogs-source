@@ -3,7 +3,7 @@ layout: post
 title:  "趁新鮮記錄一下我的第二個作品 - Winson & Ohnoes"
 date:   2019-02-15 12:00:00 +0800
 categories: HTML ProcessJS
-# permalink: /:year-:month-:day-:title
+permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---

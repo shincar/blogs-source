@@ -3,7 +3,7 @@ layout: post
 title:  "在Google Could Platform中，加入即時聊天室"
 date:   2019-02-21 08:00:00 +0800
 categories: HTML GCP NodeJS soket.io
-# permalink: /:year-:month-:day-:title
+permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---

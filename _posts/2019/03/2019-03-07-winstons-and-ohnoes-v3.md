@@ -3,7 +3,7 @@ layout: post
 title:  "Winstons & Ohnoesd大改版！"
 date:   2019-03-07 02:00:00 +0800
 categories: HTML React NodeJS GCP boardgame.io
-# permalink: /:year-:month-:day-:title
+permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---

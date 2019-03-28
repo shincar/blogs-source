@@ -3,7 +3,7 @@ layout: post
 title:  "在jekyll blog中加入留言系統"
 date:   2019-02-25 02:00:00 +0800
 categories: HTML jekyll Disqus
-# permalink: /:year-:month-:day-:title
+permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---

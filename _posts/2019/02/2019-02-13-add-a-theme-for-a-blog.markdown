@@ -3,7 +3,7 @@ layout: post
 title:  "Add a theme for a blog"
 date:   2019-02-13 12:00:00 +0800
 categories: HTML CSS
-# permalink: /:year-:month-:day-:title
+permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---
