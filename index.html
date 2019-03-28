@@ -3,11 +3,8 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: default_wrapper
-pagination: 
-  enabled: true
 ---
-
-{% for post in paginator.posts %}
+{% for post in site.posts %}
   <h3 class="ttl"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
   <h4 class="info">Post by {{ post.author }} at {{ post.date | date: "%Y-%m-%d" }}</h4>
   <div>
@@ -19,17 +16,3 @@ pagination:
   </div>
   <div class="read-more"><a href="{{ site.baseurl }}{{ post.url }}">繼續閱讀</a></div>
 {% endfor %}
-{% if paginator.total_pages > 1 %}
-<ul>
-  {% if paginator.previous_page %}
-  <li>
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Newer</a>
-  </li>
-  {% endif %}
-  {% if paginator.next_page %}
-  <li>
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Older</a>
-  </li>
-  {% endif %}
-</ul>
-{% endif %}
