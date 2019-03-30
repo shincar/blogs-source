@@ -157,6 +157,14 @@ body {
 	white-space: pre-line;
 }
 
+.previous {
+	float: left; 
+}
+
+.next {
+	float: right; 
+}
+
 #left {
 	float: left;
 	width: 724px;

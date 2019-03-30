@@ -2,7 +2,7 @@
 layout: default_wrapper
 ---
 
-{% for post in site.posts %}
+{% for post in paginator.posts %}
   <h3 class="ttl"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
   <h4 class="info">Post by {{ post.author }} at {{ post.date | date: "%Y-%m-%d" }}</h4>
   {% if post.excerpt %}
@@ -12,3 +12,25 @@ layout: default_wrapper
   {% endif %}
   <div class="read-more"><a href="{{ site.baseurl }}{{ post.url }}">繼續閱讀</a></div>
 {% endfor %}
+<!-- 
+    Showing buttons to move to the next and to the previous list of posts (pager buttons).
+-->
+<hr />
+{% if paginator.total_pages > 1 %}
+<div class="pager">
+    {% if paginator.previous_page %}
+    <div class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+          &larr; 上一頁
+        </a>
+    </div>
+    {% endif %}
+    {% if paginator.next_page %}
+    <div class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+          下一頁 &rarr;
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endif %}
