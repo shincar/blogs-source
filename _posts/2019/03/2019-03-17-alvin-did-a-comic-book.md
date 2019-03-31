@@ -3,7 +3,7 @@ layout: post
 title: "Alvin繪本創作 - 老師來了，快跑"
 date:   2019-03-17 20:00:00 +0800
 categories: 生活
-# permalink: /:year-:month-:day-:title
+permalink: /:year-:month-:day-:title
 comments: true
 author: adam
 ---
