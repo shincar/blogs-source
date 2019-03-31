@@ -43,6 +43,7 @@ defaults:
     values:
       layout: category_page
 
+
 plugins:
   - jekyll-feed
   - jekyll-paginate-v2
