@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/blogs/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blogs/" rel="alternate" type="text/html" /><updated>2019-03-31T08:18:42+08:00</updated><id>http://localhost:4000/blogs/feed.xml</id><title type="html">Adam &amp;amp; Alvin’s Fun Lab</title><subtitle>A SECRET PLACE FOR FUN PROJECTS</subtitle><entry><title type="html">打造一個線上board game平台 - Part 2</title><link href="http://localhost:4000/blogs/2019-03-28-shincar-game-base-part-2" rel="alternate" type="text/html" title="打造一個線上board game平台 - Part 2" /><published>2019-03-28T02:00:00+08:00</published><updated>2019-03-28T02:00:00+08:00</updated><id>http://localhost:4000/blogs/shincar-game-base-part-2</id><content type="html" xml:base="http://localhost:4000/blogs/2019-03-28-shincar-game-base-part-2">&lt;p&gt;有了計畫要寫一個通用的遊戲大廳之後，就開始想像整個流程。一個玩家進到大廳，網站就需要他輸入使用者名稱。不管是在聊天室裡打屁，還是開遊戲對戰室，都會有這個需求。之後如果要新增一些功能，遲早要建立使用者管理系統。那就趁早在規畫時期把地基打穩吧！&lt;/p&gt;
+
+&lt;p&gt;在做&lt;a href=&quot;https://shincar.appspot.com/&quot;&gt;Winstons &amp;amp; Ohnoes&lt;/a&gt;的網路對戰功能時，把後端資料庫掛在Google Cloud Datastore上。那時就有看到&lt;a href=&quot;https://firebase.google.com&quot;&gt;Google Firebase&lt;/a&gt;。但是當時看了一下實作的細節，覺得好像要花一些時間了解才比較能上手，所以就回頭去用舊有的Google Cloud Datastore先完成再說。效果確實也不錯。&lt;/p&gt;
+
+&lt;p&gt;這次要寫個通用大廳，加上我對網路程式設計的了解越來越多，所以決定用Firebase來實作。一方面是Google目前正在強推，所以開發重心都在這，除了Firestore、Realtime Database之外，Firebase還支援帳號管理的大部分基礎功能。例如：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;註冊新使用者&lt;/li&gt;
+  &lt;li&gt;登入驗證&lt;/li&gt;
+  &lt;li&gt;修改密碼&lt;/li&gt;
+  &lt;li&gt;寄出重設密碼的電子郵件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;大幅降低建置網站的時間。註冊新使用者的部分，還能直接整合Google、Facebook、Twitter帳號，直接讓使用者以原有的帳號登入，也是一大方便。&lt;/p&gt;
+
+&lt;p&gt;實作的部分，我基本上是參考&lt;a href=&quot;https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/&quot;&gt;這篇&lt;/a&gt;的步驟。我沒有買書，完全是看React文件跟一些網路上的範例邊學邊做，所以一直處在一知半解的狀況。看了&lt;a href=&quot;https://reactjs.org/docs/thinking-in-react.html&quot;&gt;Think in React&lt;/a&gt;之後，雖然是對React的設計哲學有較多的理解，但都沒有看到Best Practice的文章。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/&quot;&gt;這篇&lt;/a&gt;文章的步驟跟網站元件的架構都很值得參考。從一開始就把每個元件分資料夾放。讓元件各自獨立，你會更注意每個元件的用法。另外一個好用的pattern是recompose這個package。讓元件可以直接用compose的方式，擁有某項能力。例如：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;withRouter():可以讓元件能直接跳轉到其他URI&lt;/li&gt;
+  &lt;li&gt;withFirebase()：可以讓元件有能力對Firebase資料庫操作&lt;/li&gt;
+  &lt;li&gt;withAuthentication()：可以驗證使用者是不是Firebase資料庫裡的使用者。&lt;/li&gt;
+  &lt;li&gt;withAuthorization(): 可以騤證使用者有沒有權限瀏覽某些頁面。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;完成使用者管理的功能之後，&lt;a href=&quot;https://shincar-game-base.firebaseapp.com&quot;&gt;Adam &amp;amp; Alvin的遊戲基地&lt;/a&gt;就成型了。&lt;/p&gt;
+
+&lt;p&gt;複習一下，當初的規畫。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;大廳元件&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;頁首（header)&lt;/li&gt;
+  &lt;li&gt;頁尾（footer）&lt;/li&gt;
+  &lt;li&gt;側欄（sidebar）&lt;/li&gt;
+  &lt;li&gt;主畫面（main-contain）&lt;/li&gt;
+  &lt;li&gt;聊天室（chat-room）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;現在改成：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;大廳元件&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;頁首（AppBar)&lt;/li&gt;
+  &lt;li&gt;頁尾（Footer）&lt;/li&gt;
+  &lt;li&gt;側欄（Menu）&lt;/li&gt;
+  &lt;li&gt;主畫面（main-contain）&lt;/li&gt;
+  &lt;li&gt;聊天室（chat-room）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;頁首由AppBar取代，側欄的部分也在AppBar上可以搞定。使用者可以利用AppBar進行註冊、登入、進大廳主畫面等等動作。Part 3的目標是把聊天室做出來。可能會跟頁尾做結合，把它Dock在網頁的下方。可以展開跟縮小。等聊天室完成，再把Winstons &amp;amp; Ohnoes掛上來。再重新把網路對戰的功能改的更方便一點。今天就到這啦！&lt;/p&gt;</content><author><name>adam</name></author><summary type="html">有了計畫要寫一個通用的遊戲大廳之後，就開始想像整個流程。一個玩家進到大廳，網站就需要他輸入使用者名稱。不管是在聊天室裡打屁，還是開遊戲對戰室，都會有這個需求。之後如果要新增一些功能，遲早要建立使用者管理系統。那就趁早在規畫時期把地基打穩吧！</summary></entry><entry><title type="html">分類文章上線！</title><link href="http://localhost:4000/blogs/2019-03-24-add-categories-page-to-blog" rel="alternate" type="text/html" title="分類文章上線！" /><published>2019-03-24T02:00:00+08:00</published><updated>2019-03-24T02:00:00+08:00</updated><id>http://localhost:4000/blogs/add-categories-page-to-blog</id><content type="html" xml:base="http://localhost:4000/blogs/2019-03-24-add-categories-page-to-blog">&lt;p&gt;隨著文章變多，分類就變得蠻重要的。原本就預留了一個分類文章的區塊。今天有空，就來把它做好。&lt;/p&gt;
+
+&lt;p&gt;看了一下&lt;a href=&quot;https://jekyllrb.com/docs/posts/&quot;&gt;jekyll對文章的說明&lt;/a&gt;，只要有定義categories在front matter裡，這篇文章就有歸類了。這時就可以用以下語法把分類列出來。&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;category&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;categories&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;category&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;endfor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;把這段範例稍微修改一下，就加入連結讓每個人都可以點選來讀特定分類的文章了。接下來就是要為每個分類提供內容。我在根目錄下新增一個categories資料夾，然後新增每個分類的markdown。&lt;/p&gt;
+
+&lt;p&gt;每個分類的front matter長類似這樣。&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;category_page&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;HTML&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;layout是這個頁面參考的template，title裡是每個分類的名字。這樣每個分類就有他們的頁面。&lt;/p&gt;
+
+&lt;p&gt;在category_page.html裡，用page.title跟category[0]比對，完全相同的才秀出來。這樣就可以只列出這個分類的posts啦！&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;後記：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;完成第一版之後，發現有的分類可能還不適合列出來。所以就研究了一下能不能只顯示我想要列出的分類。我找到的&lt;a href=&quot;https://alligator.io/jekyll/collections/&quot;&gt;解法&lt;/a&gt;是在_config.yml中使用collections，在新增一個文章分類(my-categories)的collection，定義好之後新增一個目錄叫_my-categories。把原本每個類別的markdown放到這個目錄。然後修改一下right.html裡面分類文章改從my-categories裡面拿資訊。這樣就搞定收工囉！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/shincar/blogs&quot;&gt;原始碼在這&lt;/a&gt;&lt;/p&gt;</content><author><name>adam</name></author><summary type="html">隨著文章變多，分類就變得蠻重要的。原本就預留了一個分類文章的區塊。今天有空，就來把它做好。</summary></entry><entry><title type="html">Alvin繪本創作 - 老師來了，快跑</title><link href="http://localhost:4000/blogs/%E7%94%9F%E6%B4%BB/2019/03/17/alvin-did-a-comic-book.html" rel="alternate" type="text/html" title="Alvin繪本創作 - 老師來了，快跑" /><published>2019-03-17T20:00:00+08:00</published><updated>2019-03-17T20:00:00+08:00</updated><id>http://localhost:4000/blogs/%E7%94%9F%E6%B4%BB/2019/03/17/alvin-did-a-comic-book</id><content type="html" xml:base="http://localhost:4000/blogs/%E7%94%9F%E6%B4%BB/2019/03/17/alvin-did-a-comic-book.html">&lt;p&gt;Alvin在學校表現時好時壞，美術是他比較不在行的。這週竟然帶回了他一本個人創作，當老爸的為他著實感到高興，想要在這裡紀錄一下。家裡沒有彩色掃描機，用手機拍他的成果看了實在是很傷眼。所以就找個美工軟體做了一些簡易的描邊、去背的工作。對美工軟體也是完全不熟，剛好這次可以學習一下。以下就是Alvin的大作啦！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/Run-Teacher-Is-Coming-000.png&quot; alt=&quot;Run！Teacher's coming！封面&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/Run-Teacher-Is-Coming-001.png&quot; alt=&quot;Run！Teacher's coming！001&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/Run-Teacher-Is-Coming-002.png&quot; alt=&quot;Run！Teacher's coming！002&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/Run-Teacher-Is-Coming-003.png&quot; alt=&quot;Run！Teacher's coming！003&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/Run-Teacher-Is-Coming-004.png&quot; alt=&quot;Run！Teacher's coming！004&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/Run-Teacher-Is-Coming-005.png&quot; alt=&quot;Run！Teacher's coming！005&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/Run-Teacher-Is-Coming-006.png&quot; alt=&quot;Run！Teacher's coming！006&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我第一次看到就一直笑，不是嘲笑的那種，因為我看過他更猛的作品。這次真的是進步很多，還加上前後呼應法，算是還不錯的結構。內容方面非常的有Alvin的風格。就是普通人完全搞不懂他在想啥這樣~ XD 但是老爸懂你，放心！在你成長的路上我會一直陪著你。加油！老爸以你為榮～&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;同場加映：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;我還有一個乖女鵝，我在弄Alvin的作品的時候，她三不五時就在一旁碎唸說那”我的作品呢？”、”你看…我有畫Rapunzel哦！”、”你有把我的Rapunzel拍起來嗎？”
+一聽就知道是在討關愛 XD 這麼可愛，當然也要幫她”展”一下，才四歲就能畫出以下成果：
+&lt;img src=&quot;/blogs/images/Rapunzel_BySara.png&quot; alt=&quot;Rapunzel by Sara&quot; width=&quot;600px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我已經在期待這個小畫家以後的作品啦！&lt;/p&gt;</content><author><name>adam</name></author><summary type="html">Alvin在學校表現時好時壞，美術是他比較不在行的。這週竟然帶回了他一本個人創作，當老爸的為他著實感到高興，想要在這裡紀錄一下。家裡沒有彩色掃描機，用手機拍他的成果看了實在是很傷眼。所以就找個美工軟體做了一些簡易的描邊、去背的工作。對美工軟體也是完全不熟，剛好這次可以學習一下。以下就是Alvin的大作啦！</summary></entry><entry><title type="html">用Google Cloud Datastore做為Winstons &amp;amp; Ohnoes的資料庫</title><link href="http://localhost:4000/blogs/2019-03-14-add-database-to-winstons-n-ohnoes-v3" rel="alternate" type="text/html" title="用Google Cloud Datastore做為Winstons &amp; Ohnoes的資料庫" /><published>2019-03-14T02:00:00+08:00</published><updated>2019-03-14T02:00:00+08:00</updated><id>http://localhost:4000/blogs/add-database-to-winstons-n-ohnoes-v3</id><content type="html" xml:base="http://localhost:4000/blogs/2019-03-14-add-database-to-winstons-n-ohnoes-v3">&lt;p&gt;完成大廳功能之後，就很高興的找了幾個同事朋友試玩。原本玩的好好的，卻會突然沒反應。晚上跟Alvin玩的時候，又遇到一樣的斷線問題，只好又花點時間看看是什麼問題。發現原來是Google Cloud Platform裡的Google App Engine會在流量高的時候，自動增加伺服器。白話文就是多搬一台電腦出來給你用，跑一樣的程式。這樣才不會大家都用同一台電腦一起玩，網路會塞車。&lt;/p&gt;
+
+&lt;p&gt;對我原本的程式，把所有的遊戲資料能存在記憶體裡，如果多台伺服器一起跑，就變成看運氣，兩個玩家要剛好都用同一台伺服器上搭上線，才不會有問題。如果玩家一開了一場遊戲，被分配到伺服器A，玩家二進網站的時候，Google把他分配到伺服器B。這兩個人就注定遇不到彼此了。Orz&lt;/p&gt;
+
+&lt;p&gt;為了解決這個問題，只好開始研究資料儲存。在boardgame.io的原始碼中，我看到他有支援&lt;a href=&quot;https://www.mongodb.com/&quot;&gt;mongodb&lt;/a&gt;、&lt;a href=&quot;https://firebase.google.com/?hl=zh-TW&quot;&gt;firebase&lt;/a&gt;。兩個我都不熟，都要從頭學起。後來選了firebase，想說是Google新一代的專案服務。結果早上起床花了一兩個小時，弄好之後卻有變多連線上的問題。加上之前有一咪咪用&lt;a href=&quot;https://cloud.google.com/nodejs/getting-started/using-cloud-datastore?hl=zh-tw&quot;&gt;Google Cloud Datastore&lt;/a&gt;的經驗。所以後來就決定自己寫一個資料庫的元件給boardgame.io用。&lt;/p&gt;
+
+&lt;p&gt;開放源始碼最大的好處就是完全可以掌控程式，只要有耐心，一定能找到要怎麼修改能做到你要的功能。之前為了把game server架起來，就看過server端的code的位置。這次要加資料庫，也是在src/server/db/裡就看的到要怎麼運作啦！隨便選一個db，例如：mongo.js，把實作的部分都去掉，比較清爽。就像C++的header file一樣乾淨。&lt;/p&gt;
+
+&lt;p&gt;要實作的部分有&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;constructor()&lt;/li&gt;
+  &lt;li&gt;connect()&lt;/li&gt;
+  &lt;li&gt;set()&lt;/li&gt;
+  &lt;li&gt;get()&lt;/li&gt;
+  &lt;li&gt;has()&lt;/li&gt;
+  &lt;li&gt;remove()&lt;/li&gt;
+  &lt;li&gt;list()&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;看來不是太困難。接著就是看Google Cloud Datastore，加上不停的google。把每一個方法都作出來。然後再串到原本的Server class，把db丟到宣告裡，就會自動取代原本的資料庫元件囉！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://shincar.appspot.com/&quot;&gt;點我玩Winstons &amp;amp; Ohnoes！&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;看到這好像寫的很輕描淡寫，其實也是有遇到很多小眉角。寫在下面如果以後有遇到需要回想的時候，可以回來看。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Google Cloud Datastore不允許寫入像[[],[],[],[]]的資料。當初的game.js裡面有用到類似的結構。我的解法是把它改成[{‘0’: []}, {‘1’: []}, {‘2’: []}, {‘3’: []}]，錯誤的說明是list_value cannot contains another list_value之類的。&lt;/li&gt;
+  &lt;li&gt;Datastore在查詢時，如果要拿key，要用Datastore.KEY來當欄位名稱。然後runQuery()的回傳值，要用results[0]，拿到的才是查詢回來的陣列資料。所以要拿Key是要用results[0].forEach(entity)，才能在entity裡拿到。&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>adam</name></author><summary type="html">完成大廳功能之後，就很高興的找了幾個同事朋友試玩。原本玩的好好的，卻會突然沒反應。晚上跟Alvin玩的時候，又遇到一樣的斷線問題，只好又花點時間看看是什麼問題。發現原來是Google Cloud Platform裡的Google App Engine會在流量高的時候，自動增加伺服器。白話文就是多搬一台電腦出來給你用，跑一樣的程式。這樣才不會大家都用同一台電腦一起玩，網路會塞車。</summary></entry><entry><title type="html">在Winstons &amp;amp; Ohnoes裡加入新的遊戲大廳</title><link href="http://localhost:4000/blogs/2019-03-13-add-a-lobby-to-winstons-n-ohnoes-v3" rel="alternate" type="text/html" title="在Winstons &amp; Ohnoes裡加入新的遊戲大廳" /><published>2019-03-13T20:00:00+08:00</published><updated>2019-03-13T20:00:00+08:00</updated><id>http://localhost:4000/blogs/add-a-lobby-to-winstons-n-ohnoes-v3</id><content type="html" xml:base="http://localhost:4000/blogs/2019-03-13-add-a-lobby-to-winstons-n-ohnoes-v3">&lt;p&gt;在完成網路對戰功能之，原本的介面不太方便讓玩家二加入遊戲。所以有了遊戲大廳的想法。玩家一開始可以先進大廳，看看現在有沒有人開著遊戲在等，或是直接新增一個遊戲。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://shincar.appspot.com/&quot;&gt;點我先玩Winstons &amp;amp; Ohnoes！&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://shincar.github.io/blogs/2019-02-15-winston-and-ohnoes&quot;&gt;點我看如何玩Winstons &amp;amp; Ohnoes&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/WinstonsNOhnoes-v3-Lobby-1.png&quot; alt=&quot;New Lobby&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;新增遊戲的方法是先輸入玩家名稱，然後按下Create Game。成功建立遊戲的話，會帶玩家到遊戲畫面。可以看到自己的名字，就是玩家一的角色。如下圖所示。這時就可以請朋友也進入遊戲大廳。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/WinstonsNOhnoes-v3-GameConsole-1.png&quot; alt=&quot;New GameConsole&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第二位玩家進入大廳之後，就會看到有Available Games裡有一個等待加入的遊戲。輸入遊戲使用者名稱之後，點選要加入的遊戲，接著按下Join Game按鈕之後，就成功加入遊戲了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/WinstonsNOhnoes-v3-Lobby-2.png&quot; alt=&quot;New Lobby&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;這時就會帶玩家二進入遊戲畫面。就可以開始對戰啦！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/WinstonsNOhnoes-v3-GameConsole-2.png&quot; alt=&quot;New GameConsole&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果對規則不熟，可以參考這篇[&lt;a href=&quot;https://shincar.github.io/blogs/2019-02-15-winston-and-ohnoes&quot;&gt;如何玩Winstons &amp;amp; Ohnoes&lt;/a&gt;]&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://shincar.appspot.com/&quot;&gt;點我先玩Winstons &amp;amp; Ohnoes！&lt;/a&gt;&lt;/p&gt;</content><author><name>adam</name></author><summary type="html">在完成網路對戰功能之，原本的介面不太方便讓玩家二加入遊戲。所以有了遊戲大廳的想法。玩家一開始可以先進大廳，看看現在有沒有人開著遊戲在等，或是直接新增一個遊戲。</summary></entry><entry><title type="html">打造一個線上board game平台 - Part 1</title><link href="http://localhost:4000/blogs/2019-03-13-shincar-game-is-coming" rel="alternate" type="text/html" title="打造一個線上board game平台 - Part 1" /><published>2019-03-13T02:00:00+08:00</published><updated>2019-03-13T02:00:00+08:00</updated><id>http://localhost:4000/blogs/shincar-game-is-coming</id><content type="html" xml:base="http://localhost:4000/blogs/2019-03-13-shincar-game-is-coming">&lt;p&gt;為了幫Winstons &amp;amp; Ohnoes打造一個遊戲大廳，又帶出我另一個想法（人生就是一直充滿變化），何不寫一個能夠讓我一直加入新遊戲的通用大廳？把&lt;a href=&quot;https://reactjs.org/docs/thinking-in-react.html&quot;&gt;Think in React&lt;/a&gt;看完之後，我認真的覺得要弄出一個大廳不會太困難。只要先規畫好前端要秀出來的元件，再一個一個完成，應該能在有生之年完成。要完成任何事的先決要件就是動起來，把一件大事切成很多件小事。一件一件完成，最後就會完成了。&lt;/p&gt;
+
+&lt;p&gt;所以第一件事就是規畫第一版的遊戲大廳。想一想我的大廳要是什麼樣子。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;大廳元件&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;頁首（header)&lt;/li&gt;
+  &lt;li&gt;頁尾（footer）&lt;/li&gt;
+  &lt;li&gt;側欄（sidebar）&lt;/li&gt;
+  &lt;li&gt;主畫面（main-contain）&lt;/li&gt;
+  &lt;li&gt;聊天室（chat-room）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;頁首跟頁尾很單純，側欄跟主畫面須要再細部規畫一下。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;側欄&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;側欄目前想要提供的列表有&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;使用者設定&lt;/li&gt;
+  &lt;li&gt;Winstons &amp;amp; Ohnoes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;這樣之後進大廳後，USE CASE應該是先到使用者設定頁面，輸入遊戲使用者名稱，然後點Winstons &amp;amp; Ohnoes裡面會要開房間跟目前的遊戲房列表。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;主畫面&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;使用者點選側欄後，內容就會秀在主畫面裡。例如：點選使用者設定，就會跑出介面讓使用者改遊戲使用者名稱；點選Winstons &amp;amp; Ohnoes就進到遊戲主畫面。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;聊天室&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;目前先只提供大廳模式，所有的人都可以在裡面打字聊天。可以最小化，以後再擴充。&lt;/p&gt;</content><author><name>adam</name></author><summary type="html">為了幫Winstons &amp;amp; Ohnoes打造一個遊戲大廳，又帶出我另一個想法（人生就是一直充滿變化），何不寫一個能夠讓我一直加入新遊戲的通用大廳？把Think in React看完之後，我認真的覺得要弄出一個大廳不會太困難。只要先規畫好前端要秀出來的元件，再一個一個完成，應該能在有生之年完成。要完成任何事的先決要件就是動起來，把一件大事切成很多件小事。一件一件完成，最後就會完成了。</summary></entry><entry><title type="html">Winstons &amp;amp; Ohnoesd大改版！</title><link href="http://localhost:4000/blogs/2019-03-07-winstons-and-ohnoes-v3" rel="alternate" type="text/html" title="Winstons &amp; Ohnoesd大改版！" /><published>2019-03-07T02:00:00+08:00</published><updated>2019-03-07T02:00:00+08:00</updated><id>http://localhost:4000/blogs/winstons-and-ohnoes-v3</id><content type="html" xml:base="http://localhost:4000/blogs/2019-03-07-winstons-and-ohnoes-v3">&lt;p&gt;噹！噹！噹！最新一版的Winstons &amp;amp; Ohnoes出爐啦！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://shincar.appspot.com/&quot;&gt;點我搶先玩看看！&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;點選Single可以單機玩。對選Player 1可以新增一場對戰。新增成功在畫面下方會有Game ID，傳給想要對戰的朋友，將Game ID貼到Player 2的欄位按下Join就可以對戰了。目前對戰的功能使用上還沒有很方便，應該再過幾天會做出一個遊戲大廳，可以查看正在等候加入的對戰室，就會更方便啦！&lt;/p&gt;
+
+&lt;p&gt;自從完成Winstons &amp;amp; Ohnoes的網路對戰功能之後，又發給一些同學、朋友們試玩看看。結果遇到的狀況還真多。包括&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;玩一玩會斷線&lt;/li&gt;
+  &lt;li&gt;在手機上顯示比例不佳&lt;/li&gt;
+  &lt;li&gt;在高解析度＋高DPI的電腦上不能玩&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一方面是我當初學ProcessJS的時候，一頭熱的想快速寫出一個遊戲。忽略了前期的規畫。加上對網路程式的不熟悉，越寫就發現越麻煩。種種原因讓我興起改架構的念頭。這次改動主要想要達成&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;遊戲的邏輯跟遊戲介面能獨立開來&lt;/li&gt;
+  &lt;li&gt;介面要能簡單的做出手機與電腦都能使用的版型&lt;/li&gt;
+  &lt;li&gt;介面的改動要容易，之後要擴充功能重覆使用原本的元件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;照例請出Google大神，果然找到一個設計良好的boardgame架構元件。名字淺顯易懂，就叫&lt;a href=&quot;https://boardgame.io&quot;&gt;boardgame.io&lt;/a&gt;，在github裡的範例剛好是Tic-Tak-Toe(就是OX遊戲)。照著指令把範例跑起來之後，看來蠻舒服的。接著就是把它的範例改成Winstons &amp;amp; Ohnoes的規則，就完成文字版的Winstons &amp;amp; Ohnoes v3啦！&lt;/p&gt;
+
+&lt;p&gt;作者的目標應該是在設計遊戲邏輯的時候，幾乎可以完全不寫多餘的程式碼，這點我在剛開始用的時候，還摸不清楚。等到了解越多之後發現真的可以不用寫。另外，還看到裡面內建了socket.io，代表網路對戰也不是問題。讚啦！&lt;/p&gt;
+
+&lt;p&gt;完成文字版的Winstons &amp;amp; Ohnoes之後，就是把介面的部分做出來讓遊戲邏輯套上去。在看Tic-Tak-Toe範例時，發現作者用的是一個叫&lt;a href=&quot;https://reactjs.org/&quot;&gt;React&lt;/a&gt;的Javascript架構，由Facebook為主力開發維護。這又勾起我多年前工作時的回憶。React是那個專案用的架構。當年那個客戶就是Facebook XD 想不到那時問題多多的架構如今已經成為一方之霸。跟AngularJS、VUE並列一線Javascript UI framework。用起來很神奇，而且開發工具做的很不賴。開啟之後，每當你的程式有變動，就會觸發瀏覽器刷新讓你看結果。非常貼心！之後如果有機會再專文介紹。（其實是自己也還不熟～ 哈）&lt;/p&gt;
+
+&lt;p&gt;等到Winstons &amp;amp; Ohnoes做的差不多的話，下一個目標來試試卡卡頌或是馬尼拉好了～ 拜拜&lt;/p&gt;</content><author><name>adam</name></author><summary type="html">噹！噹！噹！最新一版的Winstons &amp;amp; Ohnoes出爐啦！</summary></entry><entry><title type="html">Winstons &amp;amp; Ohnoes現在支援網路對戰囉！</title><link href="http://localhost:4000/blogs/2019-03-01-winstons-and-ohnoes-now-support-network-battling" rel="alternate" type="text/html" title="Winstons &amp; Ohnoes現在支援網路對戰囉！" /><published>2019-03-01T02:00:00+08:00</published><updated>2019-03-01T02:00:00+08:00</updated><id>http://localhost:4000/blogs/winstons-and-ohnoes-now-support-network-battling</id><content type="html" xml:base="http://localhost:4000/blogs/2019-03-01-winstons-and-ohnoes-now-support-network-battling">&lt;p&gt;經過幾天的努力，現在Winstons &amp;amp; Ohnoes終於可以支援網路對戰啦！萬歲！
+&lt;img src=&quot;/blogs/images/WinstonNOhnoesv2_main.png&quot; alt=&quot;主畫面&quot; width=&quot;500px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;點我玩&lt;a href=&quot;https://20190301t085415-dot-shincar.appspot.com/&quot;&gt;Winstons &amp;amp; Ohnoes&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;玩法是點選網路對戰，進入對戰資訊頁面。填入一個對戰室名稱跟玩家大名之後，按下加入按鈕。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/WinstonNOhnoesV2_BattleInfo.png&quot; alt=&quot;對戰資訊畫面&quot; width=&quot;500px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果對戰室名稱不存在，就會新增一個對戰室。然後進入等待畫面。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/WinstonNOhnoesV2_Waiting.png&quot; alt=&quot;等待畫面&quot; width=&quot;500px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第二位玩家一樣進入對戰資訊頁面，輸入同一個對戰室名稱和玩家大名之，按下加入按鈕。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/WinstonNOhnoesV2_Player2.png&quot; alt=&quot;對戰資訊畫面&quot; width=&quot;500px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;伺服器收到訊息之後，如果有同一個對戰室的對手已經在等待，就會進入遊戲主畫面。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/WinstonNOhnoesV2_Game.png&quot; alt=&quot;遊戲主畫面&quot; width=&quot;500px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第一個新增對戰室的人為玩家一，後加入的人為玩家二。左上角顯示的是目前輪到哪個玩家。之後的規則就跟原本的一樣啦！
+如果不熟，可以參考這篇&lt;a href=&quot;https://shincar.github.io/blogs/2019-02-15-winston-and-ohnoes&quot;&gt;Winson &amp;amp; Ohnoes&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;另外，如果新增對戰室時，伺服器已經有同一個對戰室名稱存在，且已經在對戰，則會回傳”對戰室已滿，換個名稱吧！”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/WinstonNOhnoesV2_BattleFull.png&quot; alt=&quot;遊戲主畫面&quot; width=&quot;500px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;點我玩&lt;a href=&quot;https://20190301t085415-dot-shincar.appspot.com/&quot;&gt;Winstons &amp;amp; Ohnoes&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;這時可以按下取消，換個名字再加入對戰室哦！祝大家玩的愉快！如果有什麼建議歡迎留言告訴我哦！ :)&lt;/p&gt;</content><author><name>adam</name></author><summary type="html">經過幾天的努力，現在Winstons &amp;amp; Ohnoes終於可以支援網路對戰啦！萬歲！</summary></entry><entry><title type="html">在jekyll blog中加入留言系統</title><link href="http://localhost:4000/blogs/2019-02-25-add-disqus-system-to-blog" rel="alternate" type="text/html" title="在jekyll blog中加入留言系統" /><published>2019-02-25T02:00:00+08:00</published><updated>2019-02-25T02:00:00+08:00</updated><id>http://localhost:4000/blogs/add-disqus-system-to-blog</id><content type="html" xml:base="http://localhost:4000/blogs/2019-02-25-add-disqus-system-to-blog">&lt;p&gt;寫了那麼多篇文章，當然是希望哪天有人看到。為了讓來看的人有機會留下足跡，或是對文章的內容提出疑問。所以有個留言板也是很正常的。&lt;/p&gt;
+
+&lt;p&gt;起手式一樣是GOOGLE一下，馬上就找到一個可以跟jekyll整合的獨立留言系統，叫做&lt;a href=&quot;https://disqus.com/&quot;&gt;Disqus&lt;/a&gt;。這系統蠻方便的，可以讓使用者決定要用哪個帳號登入。預設支援disqus、facebook、google或twitter登入。就可以留言啦！&lt;/p&gt;
+
+&lt;p&gt;我是直接用google account登入創建Disqus帳號，然後選擇”I want to install Disqus on my site”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/disqus_get_started.png&quot; alt=&quot;Disqus get started&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;填入正確資料之後，按下Create Site&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/disqus_create_new_site.png&quot; alt=&quot;Create Site&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;就會有在jekyll系統中，加入Disqus的語法，跟要加在哪邊的說明。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blogs/images/discus_jekyll_install_instructions.png&quot; alt=&quot;Install instructions&quot; width=&quot;600px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;它預設的說明是建議你每個post都加comments: true來決定要不要秀出留言系統。我自己是在_layouts\post.html裡也加了comments: true
+這樣的好處是如果我要直接關閉整個留言系統，直接改_layouts\post.html就可以了。&lt;/p&gt;
+
+&lt;p&gt;立馬去&lt;a href=&quot;https://shincar.github.io/blogs/2019-01-29-my-first-game&quot;&gt;第一篇&lt;/a&gt;文章頭推試試，看來沒問題！讚啦～&lt;/p&gt;</content><author><name>adam</name></author><summary type="html">寫了那麼多篇文章，當然是希望哪天有人看到。為了讓來看的人有機會留下足跡，或是對文章的內容提出疑問。所以有個留言板也是很正常的。</summary></entry><entry><title type="html">在Google App Engine中，Winstons &amp;amp; Ohnoes無法載入，原因出在PNG檔</title><link href="http://localhost:4000/blogs/2019-02-25-fixed-winston-and-ohnoes-issue-on-gae" rel="alternate" type="text/html" title="在Google App Engine中，Winstons &amp; Ohnoes無法載入，原因出在PNG檔" /><published>2019-02-25T02:00:00+08:00</published><updated>2019-02-25T02:00:00+08:00</updated><id>http://localhost:4000/blogs/fixed-winston-and-ohnoes-issue-on-gae</id><content type="html" xml:base="http://localhost:4000/blogs/2019-02-25-fixed-winston-and-ohnoes-issue-on-gae">&lt;p&gt;原本正興高采烈的實作Winstons &amp;amp; Ohnoes的網路對戰功能，卻突然發現host在GAE的Winstons &amp;amp; Ohnoes根本沒辦法玩。比對了一下在github裡的程式碼跟在GAE裡的完全一樣，但在GAE裡的硬是load不出來。就只好開始debug了。&lt;/p&gt;
+
+&lt;p&gt;使用Google Chrome內建的Inspect工具，查看程式碼有沒有完整的下載成功，結果是有的。怪！看了半天都看不出來，只好用分解法，把可以簡化的宣告跟函式都先去掉。一點一點增加程式碼，看看是加到哪邊的時候會壞掉。&lt;/p&gt;
+
+&lt;p&gt;簡化到只畫homeScene時就壞了，算是好消息。只要能把homeScene畫出來，可能問題就解了。畫homeScene時，總共做了以下幾件事：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;初始化畫布&lt;/li&gt;
+  &lt;li&gt;畫背景&lt;/li&gt;
+  &lt;li&gt;畫player1.image跟player2.image&lt;/li&gt;
+  &lt;li&gt;畫標題&lt;/li&gt;
+  &lt;li&gt;畫兩個按鈕&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;檢查到3.時發現是image在做怪，當ProcessJS試著預載圖檔時，沒辦法成功。所以就卡在那了。&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/* @pjs preload=&quot;images/cs-winston.png, images/cs-ohnoes.png&quot;; */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;剛好在github裡有絕對路徑的圖檔URL可以用，就拿來試試看&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/* @pjs preload=&quot;https://shincar.github.io/games/images/cs-winston.png,https://shincar.github.io/games/images/cs-ohnoes.png&quot;; */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;一試成功，結論就是它啦！終於可以繼續搞網路對戰功能了～ 嚇死老狗啊～&lt;/p&gt;
+
+&lt;p&gt;原始碼看&lt;a href=&quot;https://github.com/shincar/WinstonsNOhnoes_v2&quot;&gt;這裡&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;網路上有另一個解法是在app.yaml裡加入handlers把圖檔在GAE環境裡的位置指對。詳細可以看這份&lt;a href=&quot;https://cloud.google.com/appengine/docs/standard/nodejs/config/appref#handlers_element&quot;&gt;文件&lt;/a&gt;。&lt;/p&gt;</content><author><name>adam</name></author><summary type="html">原本正興高采烈的實作Winstons &amp;amp; Ohnoes的網路對戰功能，卻突然發現host在GAE的Winstons &amp;amp; Ohnoes根本沒辦法玩。比對了一下在github裡的程式碼跟在GAE裡的完全一樣，但在GAE裡的硬是load不出來。就只好開始debug了。</summary></entry></feed>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adam & Alvin's Fun Lab - 把Winstons & Ohnoes掛到Google Cloud Platform</title>
+  <link rel="stylesheet" href="/blogs/assets/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/blogs/assets/css/syntax.css" type="text/css">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+                     google_ad_client: "ca-pub-1164195389773753",
+                               enable_page_level_ads: true
+                                    });
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134630487-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+          gtag('config', 'UA-134630487-1');
+  </script>
+  <script async custom-element="amp-auto-ads"
+          src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+  </script>
+  <div id="fb-root"></div>
+  <script async defer src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.2"></script>
+</head>
+<body>
+<div id="topbg"></div>
+
+<div id="main">
+    <div id="header">
+    <div id="hdr-overlay"></div>
+<div id="hdr-box1" class="box"></div>
+<div id="hdr-box2" class="box"></div>
+<div id="hdr-box3" class="box"></div>
+<div id="hdr-box4" class="box"></div>
+<h1><a href="http://localhost:4000/blogs/">Adam & Alvin's Fun Lab</a></h1>
+<h2>A secret place for fun projects. </h2>
+
+    </div>
+    <ul id="menu">
+		  <li><a class="sel" href="#"><span></span>Lorem</a></li>
+		  <li><a href="#"><span></span>Ipsum</a></li>
+		  <li><a href="#"><span></span>Dolor</a></li>
+		  <li><a href="#"><span></span>Sit amet</a></li>
+		  <li><a href="#"><span></span>Aliquip</a></li>
+  	</ul>
+
+    <div id="content">
+        <div id="left">
+        <h3 class="ttl">把Winstons & Ohnoes掛到Google Cloud Platform</h3>
+<h4 class="info">Post by adam at 2019-02-19</h4>
+<p>為了要<a href="https://shincar.github.io/games/WinstonNOhnoes.html">Winstons &amp; Ohnoes</a>裡加入網路對戰功能，就不能只host在<a href="https://github.com/">github</a>.因為github只支援靜態網頁。網路對戰的話，兩個人必須要能跟彼此溝通。這時靜態網頁就不夠用了。剛好之前有摸過一點點<a href="https://cloud.google.com">Google Cloud Platform</a>，就把<a href="https://shincar.github.io/games/WinstonNOhnoes.html">Winstons &amp; Ohnoes</a>掛上去看看吧！</p>
+
+<p>點我玩<a href="https://shincar.appspot.com/">Google Cloud Platform 版 Winstons &amp; Ohnoes</a></p>
+
+<p>決定好平台之後，就要看看要用哪個server side的架構啦！目前Google Cloud Platform支援的架構有</p>
+<ul>
+  <li>Python 2.7, Python 3.7</li>
+  <li>Java 8</li>
+  <li>Node.js 8, and Node.js 10 (beta)</li>
+  <li>PHP 5.5, and PHP 7.2 (beta)</li>
+  <li>Go 1.9, and Go 1.11 (beta)</li>
+</ul>
+
+<p>因為工作的關係，曾經跟Python跟Node.js當過朋友。<a href="https://nodejs.org/">Node.js</a>是我2011年時支援過的一個專案，開發一支用Node.js為基礎的手機作業系統。那時的Node.js還不是很成熟，但是我對它event-driven的玩法一直覺得很酷。後來那個專案胎死腹中，我也跟著就回頭做其他的專案。想不到現在Node.js還蠻夯的，剛好Google Cloud Platform現在有支援Node.js，就決定給老朋友一個機會啦！</p>
+
+<p>兩樣都決定好之後，就是開工啦！</p>
+
+<p><strong>步驟一</strong></p>
+
+<p>先在Google Cloud Platform開一個project，取名叫shincar。</p>
+
+<p><img src="/blogs/images/create-project-in-gcp.png" alt="GPC Project Page" width="400px" /></p>
+
+<p><strong>步驟二</strong></p>
+
+<p>照著<a href="https://cloud.google.com/appengine/docs/standard/nodejs/quickstart">這篇</a>先把hello world搞出來。然後就是把Winstons &amp; Ohnoes的程式碼（其實就是html啦！）想辦法塞到app.js就可以了。</p>
+
+<p>app.js的內容如下：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// [START gae_node_request_example]</span>
+<span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">res</span>
+    <span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'Hello, world!'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="c1">// Start the server</span>
+<span class="kd">const</span> <span class="nx">PORT</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">8080</span><span class="p">;</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">PORT</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`App listening on port </span><span class="p">${</span><span class="nx">PORT</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Press Ctrl+C to quit.'</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="c1">// [END gae_node_request_example]</span></code></pre></figure>
+
+<p>重點只有一個，就是send(‘Hello, world!’)這行，server是靠這行把html傳給client。所以我只要把Winston &amp; Ohnoes的html檔案從這裡送出去。查了一下Node.js送檔案內容的方法，是<a href="http://expressjs.com/en/api.html#res.sendFile">res.sendFile()</a>。app.get()那行，從send(‘Hello, world!’)改成sendFile()，然後把html在server上的路徑串上去， 可能就收工了</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Send file: '</span> <span class="o">+</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/WinstonNOhnoes_Fullscreen.html'</span><span class="p">));</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">sendFile</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/WinstonNOhnoes_Fullscreen.html'</span><span class="p">));</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>試著下</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">gcloud app deploy</code></pre></figure>
+
+<p>結果悲劇，什麼都看不到。研究之後，發現是html沒有參考到images, css, js…等檔案。找了一下，看到用<a href="http://expressjs.com/en/api.html#app.use">app.use()</a>可以讓client存取靜態資源。新增一個public資料夾，把images, css, js…都丟進去。再加上</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="s1">'public'</span><span class="p">));</span></code></pre></figure>
+
+<p>這樣WinstonsNOhnoes_Fullscreen.html裡就能載入image, css, js…了。</p>
+
+<p>再次deploy之後，就可以正常玩啦！</p>
+
+<p>點我玩<a href="https://shincar.appspot.com/">Google Cloud Platform 版 Winstons &amp; Ohnoes</a></p>
+
+<p>我的完整的app.js如下：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+ * Copyright 2017, Google, Inc.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */</span>
+
+<span class="s1">'use strict'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"path"</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="s1">'public'</span><span class="p">));</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Send file: '</span> <span class="o">+</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/WinstonNOhnoes_Fullscreen.html'</span><span class="p">));</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">sendFile</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/WinstonNOhnoes_Fullscreen.html'</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="c1">// Start the server</span>
+<span class="kd">const</span> <span class="nx">PORT</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">8080</span><span class="p">;</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">PORT</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`App listening on port </span><span class="p">${</span><span class="nx">PORT</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Press Ctrl+C to quit.'</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="c1">// [END gae_node_request_example]</span></code></pre></figure>
+
+
+<div class="fb-like" data-href="http://localhost:4000/blogs/2019-02-19-host-winstons-and-ohnoes-on-google-could-platform" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
+
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+  this.page.url = 'http://localhost:4000/blogs/2019-02-19-host-winstons-and-ohnoes-on-google-could-platform';  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = '/2019-02-19-host-winstons-and-ohnoes-on-google-could-platform'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://adam-alvins-fun-lab.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+        <div id="right">
+        
+<h3>關於我</h3>
+<p>老狗工程師想學新把戲。順便帶我的乖鵝子了解一下阿宅的世界。應該會不定期更新內容，讓我們繼續看下去！</p>
+<div class="icon-link">
+  <div><a href="/blogs/feed.xml"><img src="/blogs/images/rssfeed.png" alt="訂閱RSS" width="20px"></img></a></div>
+  <div class="fb-like" data-href="http://localhost:4000/blogs" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+</div>
+<h3>分類文章</h3>
+<ul>
+  
+    <li>
+      <a href="/blogs/my-categories/GAE" title="view all posts">
+        GAE
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/GCP" title="view all posts">
+        GCP
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/HTML" title="view all posts">
+        HTML
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/NodeJS" title="view all posts">
+        NodeJS
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/ProcessJS" title="view all posts">
+        ProcessJS
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/React" title="view all posts">
+        React
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/jekyll" title="view all posts">
+        jekyll
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/shincar-game" title="view all posts">
+        shincar-game
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/生活" title="view all posts">
+        生活
+      </a>
+    </li>
+  
+</ul>
+<h3>這裡可能有廣告</h3>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- blog_ad -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1164195389773753"
+     data-ad-slot="4350581813"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <div class="cleaner"></div>
+    </div>
+    <div id="footer">
+    <div>
+Copyright © shincar.github.io
+</div>
+
+    </div>
+</div>
+
+</body>
+</html>

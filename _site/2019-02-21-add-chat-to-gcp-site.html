@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adam & Alvin's Fun Lab - 在Google Could Platform中，加入即時聊天室</title>
+  <link rel="stylesheet" href="/blogs/assets/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/blogs/assets/css/syntax.css" type="text/css">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+                     google_ad_client: "ca-pub-1164195389773753",
+                               enable_page_level_ads: true
+                                    });
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134630487-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+          gtag('config', 'UA-134630487-1');
+  </script>
+  <script async custom-element="amp-auto-ads"
+          src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+  </script>
+  <div id="fb-root"></div>
+  <script async defer src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.2"></script>
+</head>
+<body>
+<div id="topbg"></div>
+
+<div id="main">
+    <div id="header">
+    <div id="hdr-overlay"></div>
+<div id="hdr-box1" class="box"></div>
+<div id="hdr-box2" class="box"></div>
+<div id="hdr-box3" class="box"></div>
+<div id="hdr-box4" class="box"></div>
+<h1><a href="http://localhost:4000/blogs/">Adam & Alvin's Fun Lab</a></h1>
+<h2>A secret place for fun projects. </h2>
+
+    </div>
+    <ul id="menu">
+		  <li><a class="sel" href="#"><span></span>Lorem</a></li>
+		  <li><a href="#"><span></span>Ipsum</a></li>
+		  <li><a href="#"><span></span>Dolor</a></li>
+		  <li><a href="#"><span></span>Sit amet</a></li>
+		  <li><a href="#"><span></span>Aliquip</a></li>
+  	</ul>
+
+    <div id="content">
+        <div id="left">
+        <h3 class="ttl">在Google Could Platform中，加入即時聊天室</h3>
+<h4 class="info">Post by adam at 2019-02-21</h4>
+<p><a href="https://shincar.github.io/2019-02-19-host-winstons-and-ohnoes-on-google-could-platform">上一篇</a>是把 Winston &amp; Ohnoes 架到能支援<a href="https://nodejs.org/">Node.js</a>的環境。接下來就是要能在這個環境下，提供簡單的連線溝通功能啦！連線溝通的功能，要靠<a href="https://socket.io/">socket.io</a>的幫忙。</p>
+
+<p><strong>socket.io的基本功能</strong></p>
+<ul>
+  <li>建立client跟server的連線</li>
+  <li>約定一個共同溝通的房間</li>
+  <li>透過socket.on()來接收訊息</li>
+  <li>透過socket.emit()來發送訊息</li>
+</ul>
+
+<p>有了這些功能，要支援網路對戰就不是夢啦！</p>
+
+<p>要直接把socket.io整進Winstons &amp; Ohnoes，對於一個老手來說可能很容易。但我其實在web design還是個新手，所以我的策略是先把socket.io的功能在Google Cloud Platform上掛起來，等我對socket.io的運作有多一點的理解之後，再把它加到Winstons &amp; Ohnoes。理論上，Winstons &amp; Ohnoes的實作可能也還要調整。因為我對javascript也沒有到很專家，不過別擔心，一切都在進步中。</p>
+
+<p>我想做到的是先提供另一個URL把socket.io的功能先玩一遍，然後確認在Google Cloud Platform上也都能正常運作。這樣整合到Winstons &amp; Ohnoes的時候，比較能得心應手。</p>
+
+<p>我以<a href="https://github.com/socketio/socket.io">socket-io原始碼</a>裡的examples/chat為藍本，在index.js中把WinstonNOhnoes_Fullscreen.html指定給/，而把chat/index.html指向 /chat。</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'SendFile: '</span> <span class="o">+</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'/public/WinstonNOhnoes_Fullscreen.html'</span><span class="p">));</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">sendFile</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'/public/WinstonNOhnoes_Fullscreen.html'</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/chat'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">sendFile</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'/public/chat.html'</span><span class="p">));</span>
+<span class="p">})</span></code></pre></figure>
+
+<p>使用者在瀏覽器的網址列輸入</p>
+<ul>
+  <li>https://shincar.appspot.com/ 就會和原本一樣，可以玩Winstons &amp; Ohnoes</li>
+  <li>https://shincar.appspot.com/chat 則會導向/chat/index.html，輸入大名之後，就可以進入聊天室。</li>
+</ul>
+
+<p>另外，index.js裡socket.io的路徑，在examples裡是相對路徑</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'../..'</span><span class="p">)(</span><span class="nx">server</span><span class="p">);</span></code></pre></figure>
+
+<p>要改成</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'socket.io'</span><span class="p">)(</span><span class="nx">server</span><span class="p">);</span></code></pre></figure>
+
+<p>弄好之後，先在local環境下試試看，完全沒問題。科科</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">npm <span class="nb">install</span> <span class="nt">--save</span> socket.io
+npm start</code></pre></figure>
+
+<p>接下來就是部署到Google Cloud Platform</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">gcloud app deploy</code></pre></figure>
+
+<p>就完成啦~ <a href="https://20190301t085415-dot-shincar.appspot.com/chat/">點我開始聊天</a></p>
+
+<p>做到這裡可以想像一下，網路對戰功能到時要怎麼做啦~ 就像是兩個人進到同一個聊天室(對戰室)一樣。</p>
+
+<p>玩家一進入對戰室</p>
+
+<p><img src="/blogs/images/socket.io-player1_enter.png" alt="玩家一進入對戰室" width="400px" /></p>
+
+<p>玩家二進入對戰室</p>
+
+<p><img src="/blogs/images/socket.io-lobby.png" alt="玩家二進入對戰室" width="400px" /></p>
+
+<p>兩人開始對戰，直到遊戲結束</p>
+
+<p><img src="/blogs/images/socket.io-chat.png" alt="開始對戰" width="400px" /></p>
+
+
+<div class="fb-like" data-href="http://localhost:4000/blogs/2019-02-21-add-chat-to-gcp-site" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
+
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+  this.page.url = 'http://localhost:4000/blogs/2019-02-21-add-chat-to-gcp-site';  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = '/2019-02-21-add-chat-to-gcp-site'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://adam-alvins-fun-lab.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+        <div id="right">
+        
+<h3>關於我</h3>
+<p>老狗工程師想學新把戲。順便帶我的乖鵝子了解一下阿宅的世界。應該會不定期更新內容，讓我們繼續看下去！</p>
+<div class="icon-link">
+  <div><a href="/blogs/feed.xml"><img src="/blogs/images/rssfeed.png" alt="訂閱RSS" width="20px"></img></a></div>
+  <div class="fb-like" data-href="http://localhost:4000/blogs" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+</div>
+<h3>分類文章</h3>
+<ul>
+  
+    <li>
+      <a href="/blogs/my-categories/GAE" title="view all posts">
+        GAE
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/GCP" title="view all posts">
+        GCP
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/HTML" title="view all posts">
+        HTML
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/NodeJS" title="view all posts">
+        NodeJS
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/ProcessJS" title="view all posts">
+        ProcessJS
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/React" title="view all posts">
+        React
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/jekyll" title="view all posts">
+        jekyll
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/shincar-game" title="view all posts">
+        shincar-game
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blogs/my-categories/生活" title="view all posts">
+        生活
+      </a>
+    </li>
+  
+</ul>
+<h3>這裡可能有廣告</h3>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- blog_ad -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1164195389773753"
+     data-ad-slot="4350581813"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        </div>
+        <div class="cleaner"></div>
+    </div>
+    <div id="footer">
+    <div>
+Copyright © shincar.github.io
+</div>
+
+    </div>
+</div>
+
+</body>
+</html>
