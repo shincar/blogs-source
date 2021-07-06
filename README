@@ -1,0 +1,5 @@
+To update blog
+$jekyll build
+
+To see blog locally
+$jekyll serve
